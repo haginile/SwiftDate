@@ -1,4 +1,4 @@
 SwiftDate
 =========
 
-A flexible Date/Calendar Library Written in Swift
+A Flexible Date/Calendar Library Written in Swift

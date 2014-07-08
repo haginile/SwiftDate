@@ -27,6 +27,9 @@ class DayCounter {
     
     var impl : Impl
     
+    /**
+    *  Construct a generic day counter (Actual/365.25 convention is used)
+    */
     init() {
         impl = DayCounter.Impl()
     }
@@ -39,10 +42,29 @@ class DayCounter {
         return impl.shortName()
     }
     
+    /**
+    *  Returns the number of days between two dates based on the day counter
+    *
+    *  @param date1 Starting date
+    *  @param date2 End date
+    *
+    *  @return the number of days between two dates based on the day counter
+    */
     func dayCount(date1 : Date, date2 : Date) -> Int {
         return impl.dayCount(date1, date2: date2)
     }
     
+    
+    /**
+    *  Returns the day count fraction (i.e., year fraction) between two dates based on the day counter
+    *
+    *  @param date1              Starting date
+    *  @param date2              End date
+    *  @param referenceStartDate Reference start date (used for actual/actual)
+    *  @param referenceEndDate   Reference end date (used for actual/actual)
+    *
+    *  @return a double representing the day count fraction
+    */
     func dayCountFraction(date1 : Date, date2 : Date, referenceStartDate : Date = Date(), referenceEndDate : Date = Date()) -> Double {
         return impl.dayCountFraction(date1, date2: date2, referenceStartDate: referenceStartDate, referenceEndDate: referenceEndDate)
     }

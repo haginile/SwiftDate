@@ -1,7 +1,13 @@
 SwiftDate
 =========
 
-SwiftDate is a flexible and powerful Date/Calendar library written completely in Swift. It is based on QuantLib, the popular quantitative finance library, and is designed to be very friendly to financial applications. Even if you are not building financial applications, you may still find its date shifting and calendar classes useful.
+SwiftDate is a flexible and powerful Date/Calendar library written completely in Swift. It is based on QuantLib, the popular quantitative finance library, and is designed to be very friendly to financial applications. Even if you are not building financial apps, you may still find its date shifting and calendar classes useful.
+
+Community
+==========
+
+Check out this [online forum](http://swift.versify-app.com) for the latest updates + general Swift news & tutorials.
+
 
 Getting Started
 ===============
@@ -48,12 +54,6 @@ The DayCounter class lets you compute the year fraction (day count fraction) bet
 
     var dc = Actual360()
     dc.dayCountFraction(Date(string : "2014-01-31"), date2: Date(string : "2014-02-28")) // returns 28.0 / 360.0
-
-
-Community
-==========
-
-Check out this [online forum](http://swift.versify-app.com) for the latest updates.
 
 
 Copyright and license

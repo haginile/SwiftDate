@@ -63,7 +63,5 @@ class SwiftDateTesting: XCTestCase {
     }
     
     func testDayCounter() {
-        var dc = Actual360()
-        println(dc.dayCountFraction(Date(string : "2014-01-31"), date2: Date(string : "2014-02-28")))
     }
 }

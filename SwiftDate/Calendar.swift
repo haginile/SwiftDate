@@ -87,10 +87,28 @@ class Calendar {
         return impl.isBizDay(date)
     }
     
+    /**
+    *  Checks whether a weekday is a weekend; this is useful because in India, for example, Saturday is not a bank holiday
+    *
+    *  @param weekday
+    *
+    *  @return a boolean representing whether or not a weekday is considered a weekend
+    */
     func isWeekend(weekday : Weekday) -> Bool {
         return impl.isWeekend(weekday)
     }
     
+    
+    /**
+    *  Returns the number of business days (good days) between two dates
+    *
+    *  @param fromDate     Starting date of the interval
+    *  @param toDate       End date of the interval
+    *  @param includeFirst Is the fromDate included? Default is true
+    *  @param includeLast  Is the toDate included? Default is false
+    *
+    *  @return an integer representing the number of business days between two dates
+    */
     func bizDaysBetween(fromDate : Date, toDate : Date, includeFirst : Bool = true, includeLast : Bool = false) -> Int {
         var wd = 0
         if (fromDate != toDate) {
@@ -136,6 +154,13 @@ class Calendar {
     
     }
     
+    /**
+    *  Returns the next business day after date
+    *
+    *  @param date The base date
+    *
+    *  @return the next business day after date
+    */
     func nextBizDay(date : Date) -> Date {
         var d = date
         do {
@@ -144,7 +169,13 @@ class Calendar {
         return d
     }
     
-    
+    /**
+    *  Returns the immediate previous business day before date
+    *
+    *  @param date The base date
+    *
+    *  @return the previous business day before date
+    */
     func prevBizDay(date : Date) -> Date {
         var d = date
         do {
@@ -154,6 +185,16 @@ class Calendar {
     }
     
     
+    /**
+    *  Adjust the date for bad days; i.e., do nothing if the supplied date is already a business day;
+    *  Otherwise, move it to a business day based on the bizDayRule
+    *
+    *  @param date       The base date
+    *  @param bizDayRule Specifies the bizDayRule used to make the adjustment
+    *  @param timeUnit   timeUnit
+    *
+    *  @return date that has been adjusted for bad days (if necessary)
+    */
     func adjust(date : Date, bizDayRule : BizDayRule = BizDayRule.Unadjust, timeUnit : TimeUnit = TimeUnit.Month) -> Date {
         if (isBizDay(date)) {
             return date
@@ -178,10 +219,28 @@ class Calendar {
         
     }
     
+    /**
+    *  Add number of CALENDAR days to the base date and adjust result for bad days if necessary
+    *
+    *  @param date         The base date
+    *  @param numberOfDays Number of CALENDAR days to add
+    *  @param bizDayRule   bizDayRule used to adjust for bad days
+    *
+    *  @return date
+    */
     func addDays(date : Date, numberOfDays : Int, bizDayRule : BizDayRule) -> Date {
         return adjust(date + numberOfDays, bizDayRule: bizDayRule)
     }
     
+    /**
+    *  Add number of BUSINESS days to the base date and adjust result for bad days if necessary
+    *
+    *  @param date         The base date
+    *  @param numberOfDays Number of BUSINESS days to add
+    *  @param bizDayRule   bizDayRule used to adjust for bad days
+    *
+    *  @return date
+    */
     func addBizDays(date : Date, numberOfDays : Int, bizDayRule : BizDayRule) -> Date {
         var next = date
         next = adjust(next, bizDayRule : bizDayRule)
@@ -193,17 +252,52 @@ class Calendar {
         return next
     }
     
+    /**
+    *  Add number of months to the base date and adjust result for bad days if necessary
+    *
+    *  @param date           The base date
+    *  @param numberOfMonths Number of months to add to the base date
+    *  @param bizDayRule     bizDayRule used to adjust for bad days
+    *  @param rollDay        the roll day; if roll day is RollDay.Zero (default), then the defaultRollDay() will be used
+    *                        consider "2014-06-30", adding one month using the default rollday would return "2014-07-30"
+    *                        alternatively, you may specify the rollday to be RollDay.ThirtyOne, in which case "2014-07-31"
+    *                        will be returned
+    *
+    *  @return the new date
+    */
     func addMonths(date : Date, numberOfMonths : Int, bizDayRule : BizDayRule, rollDay : RollDay = RollDay.Zero) -> Date {
         return adjust(date.addMonths(numberOfMonths, rollDay: rollDay), bizDayRule: bizDayRule)
     }
     
+    
+    /**
+    *  Add number of years to the base date and adjust result for bad days if necessary
+    *
+    *  @param date           The base date
+    *  @param numberOfYears  Number of years to add to the base date
+    *  @param bizDayRule     bizDayRule used to adjust for bad days
+    *  @param rollDay        the roll day; if roll day is RollDay.Zero (default), then the defaultRollDay() will be used
+    *                        see comment for addMonths
+    *
+    *  @return the new date
+    */
     func addYears(date : Date, numberOfYears : Int, bizDayRule : BizDayRule, rollDay : RollDay = RollDay.Zero) -> Date {
         return adjust(date.addYears(numberOfYears, rollDay: rollDay), bizDayRule: bizDayRule)
     }
 
+    /**
+    *  Add a term to the base date and adjust result for bad days if necessary
+    *
+    *  @param date           The base date
+    *  @param term           Term to add to the base date
+    *  @param bizDayRule     bizDayRule used to adjust for bad days
+    *  @param rollDay        the roll day; if roll day is RollDay.Zero (default), then the defaultRollDay() will be used
+    *                        see comment for addMonths
+    *
+    *  @return the new date
+    */
     func add(date : Date, term : Term, bizDayRule : BizDayRule, rollDay : RollDay = RollDay.Zero) -> Date {
         return adjust(date.add(term, rollDay: rollDay), bizDayRule : bizDayRule)
     }
-
     
 }

@@ -472,95 +472,9 @@ class Date {
     *  @return a boolean representing whether or not the year is a leap year
     */
     class func isLeap(year : Int) -> Bool {
-        let YearIsLeap = [
-        // 1900 is leap in agreement with Excel's bug
-        // 1900 is out of valid date range anyway
-        // 1900-1909
-        true,false,false,false, true,false,false,false, true,false,
-        // 1910-1919
-        false,false, true,false,false,false, true,false,false,false,
-        // 1920-1929
-        true,false,false,false, true,false,false,false, true,false,
-        // 1930-1939
-        false,false, true,false,false,false, true,false,false,false,
-        // 1940-1949
-        true,false,false,false, true,false,false,false, true,false,
-        // 1950-1959
-        false,false, true,false,false,false, true,false,false,false,
-        // 1960-1969
-        true,false,false,false, true,false,false,false, true,false,
-        // 1970-1979
-        false,false, true,false,false,false, true,false,false,false,
-        // 1980-1989
-        true,false,false,false, true,false,false,false, true,false,
-        // 1990-1999
-        false,false, true,false,false,false, true,false,false,false,
-        // 2000-2009
-        true,false,false,false, true,false,false,false, true,false,
-        // 2010-2019
-        false,false, true,false,false,false, true,false,false,false,
-        // 2020-2029
-        true,false,false,false, true,false,false,false, true,false,
-        // 2030-2039
-        false,false, true,false,false,false, true,false,false,false,
-        // 2040-2049
-        true,false,false,false, true,false,false,false, true,false,
-        // 2050-2059
-        false,false, true,false,false,false, true,false,false,false,
-        // 2060-2069
-        true,false,false,false, true,false,false,false, true,false,
-        // 2070-2079
-        false,false, true,false,false,false, true,false,false,false,
-        // 2080-2089
-        true,false,false,false, true,false,false,false, true,false,
-        // 2090-2099
-        false,false, true,false,false,false, true,false,false,false,
-        // 2100-2109
-        false,false,false,false, true,false,false,false, true,false,
-        // 2110-2119
-        false,false, true,false,false,false, true,false,false,false,
-        // 2120-2129
-        true,false,false,false, true,false,false,false, true,false,
-        // 2130-2139
-        false,false, true,false,false,false, true,false,false,false,
-        // 2140-2149
-        true,false,false,false, true,false,false,false, true,false,
-        // 2150-2159
-        false,false, true,false,false,false, true,false,false,false,
-        // 2160-2169
-        true,false,false,false, true,false,false,false, true,false,
-        // 2170-2179
-        false,false, true,false,false,false, true,false,false,false,
-        // 2180-2189
-        true,false,false,false, true,false,false,false, true,false,
-        // 2190-2199
-        false,false, true,false,false,false, true,false,false,false,
-        // 2200
-        false,
-        // 2201-2209
-        false,true,false,false,false,false,false,false,false,
-        // 2210-2219
-        false,false,true,false,false,true,false,false,true,false,
-        // 2220-2229
-        false,true,false,false,false,false,false,false,false,false,
-        // 2230-2239
-        false,true,false,false,true,false,false,true,false,false,
-        // 2240-2249
-        false,false,false,false,true,false,false,true,false,false,
-        // 2250-2259
-        true,false,false,true,false,false,false,false,false,false,
-        // 2260-2269
-        true,false,false,true,false,false,true,false,false,true,
-        // 2270-2279
-        false,false,false,false,false,false,true,false,false,true,
-        // 2280-2289
-        false,false,true,false,false,true,false,false,false,false,
-        // 2290-2300
-        false,false,true,false,false,true,false,false,true,false,false
-        ];
-        return YearIsLeap[year-1900];
+        return (year == 1900) || (year % 400 == 0) || ( (year % 4 == 0) && (year % 100 != 0) );
     }
-    
+
     class func monthOffset(month : Int, leapYear : Bool) -> Int {
         let MonthOffset : [Int] = [
             0,  31,  59,  90, 120, 151,

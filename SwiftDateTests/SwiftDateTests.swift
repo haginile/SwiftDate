@@ -41,6 +41,51 @@ class SwiftDateTesting: XCTestCase {
         XCTAssertEqual(date2.serialNumber, 41774, "Pass")
         
     }
+
+    func testLeapYear() {
+
+        let leapYears : [Bool] = [
+            // Copied over from QuantLib... it better match with our implementation
+            // 1900 is leap in agreement with Excel's bug
+            // 1900 is out of valid date range anyway
+            // 1900-1919
+            true,false,false,false, true,false,false,false, true,false, false,false, true,false,false,false, true,false,false,false,
+            // 1920-1939
+            true,false,false,false, true,false,false,false, true,false, false,false, true,false,false,false, true,false,false,false,
+            // 1940-1959
+            true,false,false,false, true,false,false,false, true,false, false,false, true,false,false,false, true,false,false,false,
+            // 1960-1979
+            true,false,false,false, true,false,false,false, true,false, false,false, true,false,false,false, true,false,false,false,
+            // 1980-1999
+            true,false,false,false, true,false,false,false, true,false, false,false, true,false,false,false, true,false,false,false,
+            // 2000-2019
+            true,false,false,false, true,false,false,false, true,false, false,false, true,false,false,false, true,false,false,false,
+            // 2020-2039
+            true,false,false,false, true,false,false,false, true,false, false,false, true,false,false,false, true,false,false,false,
+            // 2040-2059
+            true,false,false,false, true,false,false,false, true,false, false,false, true,false,false,false, true,false,false,false,
+            // 2060-2079
+            true,false,false,false, true,false,false,false, true,false, false,false, true,false,false,false, true,false,false,false,
+            // 2080-2099
+            true,false,false,false, true,false,false,false, true,false, false,false, true,false,false,false, true,false,false,false,
+            // 2100-2119
+            false,false,false,false, true,false,false,false, true,false, false,false, true,false,false,false, true,false,false,false,
+            // 2120-2139
+            true,false,false,false, true,false,false,false, true,false, false,false, true,false,false,false, true,false,false,false,
+            // 2140-2159
+            true,false,false,false, true,false,false,false, true,false, false,false, true,false,false,false, true,false,false,false,
+            // 2160-2179
+            true,false,false,false, true,false,false,false, true,false, false,false, true,false,false,false, true,false,false,false,
+            // 2180-2199
+            true,false,false,false, true,false,false,false, true,false, false,false, true,false,false,false, true,false,false,false,
+            // 2200
+            false
+        ]
+        for year in 1900...2200 {
+            XCTAssert(Date.isLeap(year) == leapYears[year-1900], "Pass")
+        }
+
+    }
     
     func testTerm() {
         var td = Term(string : "7D")

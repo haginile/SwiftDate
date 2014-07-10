@@ -26,11 +26,14 @@ class SwiftDateTesting: XCTestCase {
         XCTAssertEqual(Date.endOfMonth(date1).serialNumber, Date(string : "2014-05-31").serialNumber, "Pass")
         XCTAssertEqual(Date.firstDayOfMonth(date1).serialNumber, Date(string : "2014-05-01").serialNumber, "Pass")
         
+        XCTAssertEqual((date1.add(Term(string: "1M"))).serialNumber, (date1 + "1M").serialNumber, "Pass")
+        
         XCTAssertEqual(Date(string : "2014-04-30").addMonths(1).serialNumber, Date(string : "2014-05-30").serialNumber, "Pass")
         XCTAssertEqual(Date(string : "2014-04-30").addMonths(1, rollDay: RollDay.ThirtyOne).serialNumber, Date(string : "2014-05-31").serialNumber, "Pass")
         
         var date2 = Date(string: "2014-05-15", format: "yyyy-mm-dd")
         XCTAssertEqual(date2.serialNumber, 41774, "Pass")
+        
         
     }
 

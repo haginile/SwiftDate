@@ -217,6 +217,7 @@
 				TargetAttributes = {
 					7F84F2E4196BB4AF002167A2 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = JVY8DVFZ5B;
 					};
 					7F84F2EE196BB4AF002167A2 = {
 						CreatedOnToolsVersion = 6.0;
@@ -473,6 +474,7 @@
 				7F84F2FA196BB4AF002167A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7F84F2FB196BB4AF002167A2 /* Build configuration list for PBXNativeTarget "SwiftDateTests" */ = {
 			isa = XCConfigurationList;
@@ -481,6 +483,7 @@
 				7F84F2FD196BB4AF002167A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7FC2ED89196AF50900396E0F /* Build configuration list for PBXProject "SwiftDate" */ = {
 			isa = XCConfigurationList;

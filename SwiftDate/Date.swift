@@ -329,7 +329,6 @@ class Date {
     *  @return the new date
     */
     func addMonths(var numberOfMonths : Int, var rollDay : RollDay = RollDay.Zero) -> Date {
-        
         return Date.advance(self, length: numberOfMonths, timeUnit: TimeUnit.Month, rollDay : rollDay)
     }
     
@@ -642,6 +641,10 @@ class Date {
 
 @infix func + (date : Date, days : Int) -> Date {
     return date.addDays(days)
+}
+
+@infix func + (date : Date, string : String) -> Date {
+    return date.add(Term(string: string))
 }
 
 @infix func - (date : Date, days : Int) -> Date {

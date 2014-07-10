@@ -6,14 +6,6 @@
 //  Copyright (c) 2014 SHFuse. All rights reserved.
 //
 
-//
-//  SwiftDateTests.swift
-//  SwiftDateTests
-//
-//  Created by Helin Gai on 7/8/14.
-//  Copyright (c) 2014 SHFuse. All rights reserved.
-//
-
 import XCTest
 import SwiftDate
 
@@ -108,5 +100,6 @@ class SwiftDateTesting: XCTestCase {
     }
     
     func testDayCounter() {
+        
     }
 }

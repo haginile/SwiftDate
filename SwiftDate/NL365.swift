@@ -24,10 +24,12 @@ class NL365 : DayCounter {
             if Date.isLeap(date2.year()) && date2.year() > date1.year() && date2.month() >= 3 {
                 dateAdjust -= 1
             }
-            for i in (date1.year() + 1)..<(date2.year()) {
+            var i = date1.year() + 1
+            while i < date2.year() {
                 if Date.isLeap(i) {
                     dateAdjust -= 1
                 }
+                i = i + 1
             }
             return date2 - date1 + dateAdjust
         }

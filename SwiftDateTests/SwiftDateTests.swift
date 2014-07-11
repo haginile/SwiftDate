@@ -104,5 +104,24 @@ class SwiftDateTesting: XCTestCase {
     
     func testDayCounter() {
         
+        var start_date = Date(string: "2000-01-15")
+        var end_date = Date(string: "2000-05-31")
+        
+        var actual_365 = Actual365Fixed()
+        XCTAssertEqual(actual_365.dayCountFraction(start_date, date2: end_date), 137.0 / 365, "Pass")
+        
+        var nl_365 = NL365()
+        XCTAssertEqual(nl_365.dayCountFraction(start_date, date2: end_date), 136.0 / 365, "Pass")
+        
+        var act_360 = Actual360()
+        XCTAssertEqual(act_360.dayCountFraction(start_date, date2: end_date), 137.0 / 360.0, "Pass")
+        
+        var thirty_360 = Thirty360()
+        XCTAssertEqual(thirty_360.dayCountFraction(start_date, date2: end_date), 136.0 / 360.0, "Pass")
+        
+        var thirty_360e = Thirty360(convention: Thirty360.Convention.EurobondBasis)
+        XCTAssertEqual(thirty_360e.dayCountFraction(start_date, date2: end_date), 135.0 / 360.0, "Pass")
+        
+        
     }
 }

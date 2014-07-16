@@ -647,8 +647,16 @@ class Date {
     return date.add(Term(string: string))
 }
 
+@infix func + (date : Date, term : Term) -> Date {
+    return date.add(term)
+}
+
 @infix func - (date : Date, days : Int) -> Date {
     return date.subDays(days)
+}
+
+@infix func - (date : Date, term : Term) -> Date {
+    return date.sub(term)
 }
 
 @infix func - (date1 : Date, date2 : Date) -> Int {

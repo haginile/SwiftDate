@@ -11,13 +11,13 @@
 import Foundation
 
 extension Array {
-    public var last: T {
+    var last: T {
     return self[self.endIndex - 1]
     }
 }
 
 extension String {
-    public subscript (i: Int) -> String {
+    subscript (i: Int) -> String {
         return String(Array(self)[i])
     }
     
@@ -29,7 +29,7 @@ extension String {
         }
     }
     
-    public func find_first_of(string : String) -> Int {
+    func find_first_of(string : String) -> Int {
         var i = 0
         for c in self {
             if string.rangeOfString(String(c)) {
@@ -42,8 +42,8 @@ extension String {
 }
 
 extension Int {
-    public var days: Term { get { return Term(length: self, timeUnit: TimeUnit.Day) } }
-    public var weeks: Term { get { return Term(length: self, timeUnit: TimeUnit.Week) } }
-    public var months: Term { get { return Term(length: self, timeUnit: TimeUnit.Month) } }
+    var days: Term { get { return Term(length: self, timeUnit: TimeUnit.Day) } }
+    var weeks: Term { get { return Term(length: self, timeUnit: TimeUnit.Week) } }
+    var months: Term { get { return Term(length: self, timeUnit: TimeUnit.Month) } }
     public var years: Term { get { return Term(length: self, timeUnit: TimeUnit.Year) } }
 }

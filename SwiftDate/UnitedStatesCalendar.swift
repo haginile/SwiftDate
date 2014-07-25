@@ -73,7 +73,7 @@ public class USSettlementCalendar : Calendar {
 }
 
 
-class USNYSECalendar : Calendar {
+public class USNYSECalendar : Calendar {
     class USNYSEImpl : Calendar.Impl {
         
         override func name() -> String {

@@ -78,7 +78,6 @@ public class ActualActual : DayCounter {
         }
     }
     
-    
     class ISDA_Impl : DayCounter.Impl {
         override func name() -> String { return "Actual/Actual (ISDA)" }
         override func shortName() -> String { return "Actual/Actual" }
@@ -103,7 +102,6 @@ public class ActualActual : DayCounter {
             return sum
         }
     }
-    
     
     public init(convention : ActualActual.Convention = ActualActual.Convention.ISDA) {
         super.init()

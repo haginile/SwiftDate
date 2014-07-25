@@ -10,8 +10,7 @@
 
 import Foundation
 
-
-class UKSettlementCalendar : Calendar {
+public class UKSettlementCalendar : Calendar {
     class UKSettlementImpl : Calendar.Impl {
         
         override func name() -> String {

@@ -135,7 +135,6 @@ public class Thirty360 : DayCounter {
         }
     }
     
-    
     public init(convention : Thirty360.Convention = Thirty360.Convention.BondBasis) {
         super.init()
         

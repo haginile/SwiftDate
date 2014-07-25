@@ -10,7 +10,7 @@
 
 import Foundation
 
-class TARGETCalendar : Calendar {
+public class TARGETCalendar : Calendar {
     class TARGETImpl : Calendar.Impl {
         
         override func name() -> String {

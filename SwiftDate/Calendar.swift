@@ -9,7 +9,7 @@
 
 import Foundation
 
-class Calendar {
+public class Calendar {
     
     class Impl {
         
@@ -64,15 +64,15 @@ class Calendar {
     
     var impl : Impl
     
-    init() {
+    public init() {
         impl = Calendar.Impl()
     }
     
-    init(name : String) {
+    public init(name : String) {
         impl = Calendar.Impl()
     }
     
-    func description() -> String {
+    public func description() -> String {
         return impl.name()
     }
     
@@ -83,7 +83,7 @@ class Calendar {
     *
     *  @return a boolean representing whether or not the date is a business day
     */
-    func isBizDay(date : Date) -> Bool {
+    public func isBizDay(date : Date) -> Bool {
         return impl.isBizDay(date)
     }
     
@@ -94,7 +94,7 @@ class Calendar {
     *
     *  @return a boolean representing whether or not a weekday is considered a weekend
     */
-    func isWeekend(weekday : Weekday) -> Bool {
+    public func isWeekend(weekday : Weekday) -> Bool {
         return impl.isWeekend(weekday)
     }
     
@@ -109,7 +109,7 @@ class Calendar {
     *
     *  @return an integer representing the number of business days between two dates
     */
-    func bizDaysBetween(fromDate : Date, toDate : Date, includeFirst : Bool = true, includeLast : Bool = false) -> Int {
+    public func bizDaysBetween(fromDate : Date, toDate : Date, includeFirst : Bool = true, includeLast : Bool = false) -> Int {
         var wd = 0
         if (fromDate != toDate) {
             if (fromDate < toDate) {
@@ -161,7 +161,7 @@ class Calendar {
     *
     *  @return the next business day after date
     */
-    func nextBizDay(date : Date) -> Date {
+    public func nextBizDay(date : Date) -> Date {
         var d = date
         do {
             d += 1
@@ -176,7 +176,7 @@ class Calendar {
     *
     *  @return the previous business day before date
     */
-    func prevBizDay(date : Date) -> Date {
+    public func prevBizDay(date : Date) -> Date {
         var d = date
         do {
             d -= 1
@@ -195,7 +195,7 @@ class Calendar {
     *
     *  @return date that has been adjusted for bad days (if necessary)
     */
-    func adjust(date : Date, bizDayRule : BizDayRule = BizDayRule.Unadjust, timeUnit : TimeUnit = TimeUnit.Month) -> Date {
+    public func adjust(date : Date, bizDayRule : BizDayRule = BizDayRule.Unadjust, timeUnit : TimeUnit = TimeUnit.Month) -> Date {
         if (isBizDay(date)) {
             return date
         }
@@ -228,7 +228,7 @@ class Calendar {
     *
     *  @return date
     */
-    func addDays(date : Date, numberOfDays : Int, bizDayRule : BizDayRule) -> Date {
+    public func addDays(date : Date, numberOfDays : Int, bizDayRule : BizDayRule) -> Date {
         return adjust(date + numberOfDays, bizDayRule: bizDayRule)
     }
     
@@ -241,7 +241,7 @@ class Calendar {
     *
     *  @return date
     */
-    func addBizDays(date : Date, numberOfDays : Int, bizDayRule : BizDayRule) -> Date {
+    public func addBizDays(date : Date, numberOfDays : Int, bizDayRule : BizDayRule) -> Date {
         var next = date
         next = adjust(next, bizDayRule : bizDayRule)
         var nd = numberOfDays
@@ -265,7 +265,7 @@ class Calendar {
     *
     *  @return the new date
     */
-    func addMonths(date : Date, numberOfMonths : Int, bizDayRule : BizDayRule, rollDay : RollDay = RollDay.Zero) -> Date {
+    public func addMonths(date : Date, numberOfMonths : Int, bizDayRule : BizDayRule, rollDay : RollDay = RollDay.Zero) -> Date {
         return adjust(date.addMonths(numberOfMonths, rollDay: rollDay), bizDayRule: bizDayRule)
     }
     
@@ -281,7 +281,7 @@ class Calendar {
     *
     *  @return the new date
     */
-    func addYears(date : Date, numberOfYears : Int, bizDayRule : BizDayRule, rollDay : RollDay = RollDay.Zero) -> Date {
+    public func addYears(date : Date, numberOfYears : Int, bizDayRule : BizDayRule, rollDay : RollDay = RollDay.Zero) -> Date {
         return adjust(date.addYears(numberOfYears, rollDay: rollDay), bizDayRule: bizDayRule)
     }
 
@@ -296,7 +296,7 @@ class Calendar {
     *
     *  @return the new date
     */
-    func add(date : Date, term : Term, bizDayRule : BizDayRule, rollDay : RollDay = RollDay.Zero) -> Date {
+    public func add(date : Date, term : Term, bizDayRule : BizDayRule, rollDay : RollDay = RollDay.Zero) -> Date {
         return adjust(date.add(term, rollDay: rollDay), bizDayRule : bizDayRule)
     }
     

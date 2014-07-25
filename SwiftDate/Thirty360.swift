@@ -10,9 +10,9 @@
 
 import Foundation
 
-class Thirty360 : DayCounter {
+public class Thirty360 : DayCounter {
     
-    enum Convention {
+    public enum Convention {
         case USA, BondBasis,            // 30/360 US - Bond Basis
         European, EurobondBasis,        // 30/360E
         Italian,                        // 30/360 Italian
@@ -136,7 +136,7 @@ class Thirty360 : DayCounter {
     }
     
     
-    init(convention : Thirty360.Convention = Thirty360.Convention.BondBasis) {
+    public init(convention : Thirty360.Convention = Thirty360.Convention.BondBasis) {
         super.init()
         
         switch convention {

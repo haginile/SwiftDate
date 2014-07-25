@@ -10,7 +10,7 @@
 
 import Foundation
 
-class NL365 : DayCounter {
+public class NL365 : DayCounter {
     class NL365Impl : DayCounter.Impl {
         override func name() -> String { return "NL/360" }
         
@@ -39,7 +39,7 @@ class NL365 : DayCounter {
         }
     }
     
-    init() {
+    public init() {
         super.init()
         impl = NL365.NL365Impl()
     }

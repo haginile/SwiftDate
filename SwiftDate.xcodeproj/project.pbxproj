@@ -26,6 +26,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		7F59221B1982D9160030170C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7FC2ED86196AF50900396E0F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7F84F2E4196BB4AF002167A2;
+			remoteInfo = SwiftDate;
+		};
 		7F84F308196BB5B6002167A2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7FC2ED86196AF50900396E0F /* Project object */;
@@ -200,6 +207,7 @@
 			);
 			dependencies = (
 				7F84F309196BB5B6002167A2 /* PBXTargetDependency */,
+				7F59221C1982D9160030170C /* PBXTargetDependency */,
 			);
 			name = SwiftDateTests;
 			productName = SwiftDateTests;
@@ -293,6 +301,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7F59221C1982D9160030170C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7F84F2E4196BB4AF002167A2 /* SwiftDate */;
+			targetProxy = 7F59221B1982D9160030170C /* PBXContainerItemProxy */;
+		};
 		7F84F309196BB5B6002167A2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7F84F2E4196BB4AF002167A2 /* SwiftDate */;

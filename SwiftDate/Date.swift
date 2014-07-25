@@ -10,15 +10,15 @@
 
 import Foundation
 
-enum Month : Int {
+public enum Month : Int {
     case January = 1, February, March, April, May, June, July, August, September, October, November, December
 }
 
-enum Weekday : Int {
+public enum Weekday : Int {
     case Sunday = 1, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
 }
 
-enum RollDay : Int {
+public enum RollDay : Int {
     case Zero = 0, One = 1, Two, Three, Four, Five,
     Six, Seven, Eight, Nine, Ten,
     Eleven, Twelve, Thirteen, Fourteen, Fifteen,
@@ -28,14 +28,14 @@ enum RollDay : Int {
     ThirtyOne
 }
 
-class Date {
+public class Date {
     
     /** serialNumber corresponds to the numerical representations in Excel
      *  serialNumber of 1 corresponds to 1900-01-01,
      *  serialNumber of 2 corresponds to 1900-01-02, etc.
      *  serialNumber of 0 corresponds to "Null date"
      */
-    var serialNumber : Int = 0
+    public var serialNumber : Int = 0
     
     
     // look forward to having class variables...
@@ -49,7 +49,7 @@ class Date {
     /** 
      * Default constructor constructs the "null date", with serial number of 0
      */
-    init() {
+    public init() {
     }
     
     
@@ -58,7 +58,7 @@ class Date {
      *
      *  @param serialNumber A serial number that corresponds to date representations in Excel
      */
-    init(serialNumber : Int) {
+    public init(serialNumber : Int) {
         self.serialNumber = serialNumber;
     }
     
@@ -70,7 +70,7 @@ class Date {
      *  @param month  The month; must be in the range [1, 12]
      *  @param day    The day of month
      */
-    init(year : Int, month : Int, day : Int) {
+    public init(year : Int, month : Int, day : Int) {
         assert(year < 2200 && year > 1900, "#Year is out of bound!")
         assert(month < 13 && month > 0, "#Month is out of bound!")
         
@@ -89,7 +89,7 @@ class Date {
      *  @param string  a date string such as "2014-05-15"
      *  @param format  a formatting mask such as "yyyy-mm-dd"; only '-' and '/' are allowed as delimiters
      */
-    init(string : String, format : String = "yyyy-mm-dd") {
+    public init(string : String, format : String = "yyyy-mm-dd") {
         serialNumber = parse(string, format: format).serialNumber
     }
     
@@ -97,7 +97,7 @@ class Date {
     /** 
      * generates today's date
      */
-    class func today() -> Date {
+    public class func today() -> Date {
         var t = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitYear, fromDate: NSDate.date())
         return Date(year: t.year, month: t.month, day: t.day)
     }
@@ -113,7 +113,7 @@ class Date {
     *
     *  @return Date object
     */
-    class func nthWeekday(nth : Int, weekday : Weekday, month : Int, year : Int) -> Date {
+    public class func nthWeekday(nth : Int, weekday : Weekday, month : Int, year : Int) -> Date {
         var first = Date(year : year, month : month, day : 1).weekday()
         var skip = nth - (weekday.toRaw() >= first.toRaw() ? 1 : 0)
         return Date(year: year, month: month, day: 1 + weekday.toRaw() - first.toRaw() + skip * 7)
@@ -125,7 +125,7 @@ class Date {
     *
     *  @return an integer corresponding to the year of the date
     */
-    func year() -> Int {
+    public func year() -> Int {
         var y = (serialNumber / 365) + 1900
         if (serialNumber <= Date.yearOffset(y)) {
             --y
@@ -140,7 +140,7 @@ class Date {
     *
     *  @return an integer corresponding to the day of the date in its year
     */
-    func dayOfYear() -> Int {
+    public func dayOfYear() -> Int {
         return serialNumber - Date.yearOffset(year())
     }
     
@@ -150,7 +150,7 @@ class Date {
     *
     *  @return an integer corresponding to the month of the date
     */
-    func month() -> Int {
+    public func month() -> Int {
         var d = dayOfYear()
         var m = d / 30 + 1
         var leap = Date.isLeap(year())
@@ -169,11 +169,11 @@ class Date {
     *
     *  @return an integer corresponding to the day in month of the date
     */
-    func day() -> Int {
+    public func day() -> Int {
         return dayOfYear() - Date.monthOffset(month(), leapYear : Date.isLeap(year()))
     }
     
-    func dayOfMonth() -> Int {
+    public func dayOfMonth() -> Int {
         return day()
     }
     
@@ -184,7 +184,7 @@ class Date {
     *
     *  @return the day in week
     */
-    func weekday() -> Weekday {
+    public func weekday() -> Weekday {
         var w = serialNumber % 7
         return Weekday.fromRaw(w == 0 ? 7 : w)!
     }
@@ -198,7 +198,7 @@ class Date {
     *
     *  @return a date object corresponding to the last calendar day of the month
     */
-    class func endOfMonth(date : Date) -> Date {
+    public class func endOfMonth(date : Date) -> Date {
         var m = date.month()
         var y = date.year()
         return Date(year: y, month: m, day: Date.monthLength(m, leapYear: Date.isLeap(y)))
@@ -213,7 +213,7 @@ class Date {
     *
     *  @return a date object corresponding to the first calendar day of the month
     */
-    class func firstDayOfMonth(date : Date) -> Date {
+    public class func firstDayOfMonth(date : Date) -> Date {
         var m = date.month()
         var y = date.year()
         return Date(year: y, month: m, day: 1)
@@ -232,7 +232,7 @@ class Date {
     *
     *  @return a boolean representing whether or not the two dates are in the same period
     */
-    class func samePeriod(date1 : Date, date2 : Date, timeUnit : TimeUnit) -> Bool {
+    public class func samePeriod(date1 : Date, date2 : Date, timeUnit : TimeUnit) -> Bool {
         var result = false
         switch timeUnit {
         case TimeUnit.Month:
@@ -251,7 +251,7 @@ class Date {
     }
     
     // increment a date; do NOT use directly
-    class func advance(date : Date, length : Int, timeUnit : TimeUnit, var rollDay : RollDay = RollDay.Zero) -> Date {
+    public class func advance(date : Date, length : Int, timeUnit : TimeUnit, var rollDay : RollDay = RollDay.Zero) -> Date {
         switch timeUnit {
         case TimeUnit.Day:
             return Date(serialNumber: date.serialNumber + length)
@@ -292,7 +292,7 @@ class Date {
     *
     *  @return a new date corresponding to the current date plus days
     */
-    func addDays(days : Int) -> Date {
+    public func addDays(days : Int) -> Date {
         return Date.advance(self, length: days, timeUnit: TimeUnit.Day)
     }
 
@@ -303,7 +303,7 @@ class Date {
     *
     *  @return a new date corresponding to the current date minus days
     */
-    func subDays(days : Int) -> Date {
+    public func subDays(days : Int) -> Date {
         return Date.advance(self, length: -days, timeUnit: TimeUnit.Day)
     }
     
@@ -313,7 +313,7 @@ class Date {
     *
     *  @return the roll day corresponding to the current date
     */
-    func defaultRollDay() -> RollDay {
+    public func defaultRollDay() -> RollDay {
         return RollDay.fromRaw(day())!
     }
     
@@ -328,7 +328,7 @@ class Date {
     *
     *  @return the new date
     */
-    func addMonths(var numberOfMonths : Int, var rollDay : RollDay = RollDay.Zero) -> Date {
+    public func addMonths(var numberOfMonths : Int, var rollDay : RollDay = RollDay.Zero) -> Date {
         return Date.advance(self, length: numberOfMonths, timeUnit: TimeUnit.Month, rollDay : rollDay)
     }
     
@@ -341,7 +341,7 @@ class Date {
     *
     *  @return the new date
     */
-    func addYears(numberOfYears : Int, rollDay : RollDay = RollDay.Zero, allowRollToNextMonth : Bool = false) -> Date {
+    public func addYears(numberOfYears : Int, rollDay : RollDay = RollDay.Zero, allowRollToNextMonth : Bool = false) -> Date {
         return addMonths(numberOfYears * 12, rollDay: rollDay)
     }
     
@@ -352,7 +352,7 @@ class Date {
     *
     *  @return the new date
     */
-    func addWeeks(numberOfWeeks : Int) -> Date {
+    public func addWeeks(numberOfWeeks : Int) -> Date {
         return Date.advance(self, length: numberOfWeeks, timeUnit: TimeUnit.Week)
     }
     
@@ -366,7 +366,7 @@ class Date {
     *
     *  @return the new date
     */
-    func add(term : Term, rollDay : RollDay = RollDay.Zero) -> Date {
+    public func add(term : Term, rollDay : RollDay = RollDay.Zero) -> Date {
         switch (term.timeUnit) {
         case TimeUnit.Month:
             return addMonths(term.length, rollDay: rollDay)
@@ -389,7 +389,7 @@ class Date {
     *
     *  @return the new date
     */
-    func sub(term : Term, rollDay : RollDay = RollDay.Zero) -> Date {
+    public func sub(term : Term, rollDay : RollDay = RollDay.Zero) -> Date {
         switch (term.timeUnit) {
         case TimeUnit.Month:
             return addMonths(-term.length, rollDay: rollDay)
@@ -409,7 +409,7 @@ class Date {
     *
     *  @return the string representation of the date
     */
-    func description(format : String = "yyyy-mm-dd") -> String {
+    public func description(format : String = "yyyy-mm-dd") -> String {
         if serialNumber == 0 {
             return "Null date"
         }
@@ -451,7 +451,7 @@ class Date {
     *
     *  @return an integer corresponding to the number of days in the month
     */
-    class func monthLength(month : Int, leapYear : Bool) -> Int {
+    public class func monthLength(month : Int, leapYear : Bool) -> Int {
         let MonthLength : [Int] = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
         let MonthLeapLength : [Int] = [ 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];
         if leapYear {
@@ -470,11 +470,11 @@ class Date {
     *
     *  @return a boolean representing whether or not the year is a leap year
     */
-    class func isLeap(year : Int) -> Bool {
+    public class func isLeap(year : Int) -> Bool {
         return (year == 1900) || (year % 400 == 0) || ( (year % 4 == 0) && (year % 100 != 0) );
     }
 
-    class func monthOffset(month : Int, leapYear : Bool) -> Int {
+    public class func monthOffset(month : Int, leapYear : Bool) -> Int {
         let MonthOffset : [Int] = [
             0,  31,  59,  90, 120, 151,
             181, 212, 243, 273, 304, 334,
@@ -614,61 +614,61 @@ class Date {
     }
 }
 
-@infix func == (left: Date, right: Date) -> Bool {
+@infix public func == (left: Date, right: Date) -> Bool {
     return left.serialNumber == right.serialNumber
 }
 
-@infix func != (left: Date, right: Date) -> Bool {
+@infix public func != (left: Date, right: Date) -> Bool {
     return left.serialNumber != right.serialNumber
 }
 
 
-@infix func < (left: Date, right: Date) -> Bool {
+@infix public func < (left: Date, right: Date) -> Bool {
     return left.serialNumber < right.serialNumber
 }
 
-@infix func <= (left: Date, right: Date) -> Bool {
+@infix public func <= (left: Date, right: Date) -> Bool {
     return left.serialNumber <= right.serialNumber
 }
 
-@infix func > (left: Date, right: Date) -> Bool {
+@infix public func > (left: Date, right: Date) -> Bool {
     return left.serialNumber > right.serialNumber
 }
 
-@infix func >= (left: Date, right: Date) -> Bool {
+@infix public func >= (left: Date, right: Date) -> Bool {
     return left.serialNumber >= right.serialNumber
 }
 
-@infix func + (date : Date, days : Int) -> Date {
+@infix public func + (date : Date, days : Int) -> Date {
     return date.addDays(days)
 }
 
-@infix func + (date : Date, string : String) -> Date {
+@infix public func + (date : Date, string : String) -> Date {
     return date.add(Term(string: string))
 }
 
-@infix func + (date : Date, term : Term) -> Date {
+@infix public func + (date : Date, term : Term) -> Date {
     return date.add(term)
 }
 
-@infix func - (date : Date, days : Int) -> Date {
+@infix public func - (date : Date, days : Int) -> Date {
     return date.subDays(days)
 }
 
-@infix func - (date : Date, term : Term) -> Date {
+@infix public func - (date : Date, term : Term) -> Date {
     return date.sub(term)
 }
 
-@infix func - (date1 : Date, date2 : Date) -> Int {
+@infix public func - (date1 : Date, date2 : Date) -> Int {
     return date1.serialNumber - date2.serialNumber
 }
 
 
-@assignment func += (inout date : Date, days : Int) {
+@assignment public func += (inout date : Date, days : Int) {
     date = date + days
 }
 
-@assignment func -= (inout date : Date, days : Int) {
+@assignment public func -= (inout date : Date, days : Int) {
     date = date - days
 }
 

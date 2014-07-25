@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum BizDayRule {
+public enum BizDayRule {
     case Unadjust,
     Following,
     ModifiedFollowing,

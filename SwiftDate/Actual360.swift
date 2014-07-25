@@ -10,7 +10,7 @@
 
 import Foundation
 
-class Actual360 : DayCounter {
+public class Actual360 : DayCounter {
     class Actual360Impl : DayCounter.Impl {
         override func name() -> String { return "Actual/360" }
         override func shortName() -> String { return "Actual/360" }
@@ -20,7 +20,7 @@ class Actual360 : DayCounter {
         }
     }
     
-    init() {
+    public init() {
         super.init()
         impl = Actual360.Actual360Impl()
     }

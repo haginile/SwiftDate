@@ -10,7 +10,7 @@
 
 import Foundation
 
-class DayCounter {
+public class DayCounter {
     class Impl {
         func name() -> String { return "Day Counter" }
         
@@ -30,15 +30,15 @@ class DayCounter {
     /**
     *  Construct a generic day counter (Actual/365.25 convention is used)
     */
-    init() {
+    public init() {
         impl = DayCounter.Impl()
     }
     
-    func name() -> String {
+    public func name() -> String {
         return impl.name()
     }
     
-    func shortName() -> String {
+    public func shortName() -> String {
         return impl.shortName()
     }
     
@@ -50,7 +50,7 @@ class DayCounter {
     *
     *  @return the number of days between two dates based on the day counter
     */
-    func dayCount(date1 : Date, date2 : Date) -> Int {
+    public func dayCount(date1 : Date, date2 : Date) -> Int {
         return impl.dayCount(date1, date2: date2)
     }
     
@@ -65,7 +65,7 @@ class DayCounter {
     *
     *  @return a double representing the day count fraction
     */
-    func dayCountFraction(date1 : Date, date2 : Date, referenceStartDate : Date = Date(), referenceEndDate : Date = Date()) -> Double {
+    public func dayCountFraction(date1 : Date, date2 : Date, referenceStartDate : Date = Date(), referenceEndDate : Date = Date()) -> Double {
         return impl.dayCountFraction(date1, date2: date2, referenceStartDate: referenceStartDate, referenceEndDate: referenceEndDate)
     }
     

@@ -10,9 +10,9 @@
 
 import Foundation
 
-class ActualActual : DayCounter {
+public class ActualActual : DayCounter {
     
-    enum Convention {
+    public enum Convention {
         case ISMA, Bond,
         ISDA, Historical, Actual365
     }
@@ -105,7 +105,7 @@ class ActualActual : DayCounter {
     }
     
     
-    init(convention : ActualActual.Convention = ActualActual.Convention.ISDA) {
+    public init(convention : ActualActual.Convention = ActualActual.Convention.ISDA) {
         super.init()
         
         switch convention {

@@ -10,7 +10,7 @@
 
 import Foundation
 
-class USSettlementCalendar : Calendar {
+public class USSettlementCalendar : Calendar {
     class USSettlementImpl : Calendar.Impl {
         
         override func name() -> String {
@@ -65,7 +65,7 @@ class USSettlementCalendar : Calendar {
         }
     }
     
-    init() {
+    public init() {
         super.init()
         impl = USSettlementCalendar.USSettlementImpl()
     }
@@ -166,7 +166,7 @@ class USNYSECalendar : Calendar {
         }
     }
     
-    init() {
+    public init() {
         super.init()
         impl = USNYSECalendar.USNYSEImpl()
     }

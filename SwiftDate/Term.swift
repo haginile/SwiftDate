@@ -9,7 +9,7 @@
 
 import Foundation
 
-enum TimeUnit {
+public enum TimeUnit {
     case Day,
     Week,
     Month,
@@ -21,21 +21,21 @@ enum TimeUnit {
  *  Each term is composed of its length and its timeUnit.
  *  e.g., for "6M", its length = 6 and its timeUnit = TimeUnit.Month
  */
-class Term {
+public class Term {
     
-    var timeUnit : TimeUnit = TimeUnit.Day
-    var length : Int = 0
+    public var timeUnit : TimeUnit = TimeUnit.Day
+    public var length : Int = 0
     
     /**
     *  Default constructor constructs "0D"
     */
-    init() {
+    public init() {
     }
     
     /**
     *  Construct a term from its length and the timeUnit
     */
-    init(length : Int, timeUnit : TimeUnit) {
+    public init(length : Int, timeUnit : TimeUnit) {
         self.length = length
         self.timeUnit = timeUnit
     }
@@ -44,7 +44,7 @@ class Term {
     *  Construct a term from a tenor string such as "6M"
     *  TODO: Fix bug with composite tenor strings such as "1Y6M"
     */
-    init(string : String) {
+    public init(string : String) {
         var t = Term.parse(string)
         self.length = t.length
         self.timeUnit = t.timeUnit
@@ -56,7 +56,7 @@ class Term {
     *
     *  @return a double corresponding to the year fraction of the term
     */
-    func dayCountFraction() -> Double {
+    public func dayCountFraction() -> Double {
         switch (timeUnit) {
         case TimeUnit.Year:
             return Double(length)
@@ -75,7 +75,7 @@ class Term {
     *
     *  @return a double corresponding to the frequency of the term
     */
-    func frequency() -> Double {
+    public func frequency() -> Double {
         switch (timeUnit) {
         case TimeUnit.Year:
             return 1.0 / Double(length)
@@ -93,7 +93,7 @@ class Term {
     *
     *  @return string representing the term
     */
-    func description() -> String {
+    public func description() -> String {
         var output = String(length)
         switch (timeUnit) {
         case TimeUnit.Day:
@@ -117,7 +117,7 @@ class Term {
     *
     *  @return the combined term
     */
-    class func addTerms(term1 : Term, term2 : Term) -> Term {
+    public class func addTerms(term1 : Term, term2 : Term) -> Term {
         var length = 0
         var timeUnit = TimeUnit.Day
         
@@ -170,7 +170,7 @@ class Term {
     *
     *  @return a new term
     */
-    func addTerm(term : Term) -> Term {
+    public func addTerm(term : Term) -> Term {
         return Term.addTerms(self, term2 : term)
     }
     
@@ -181,7 +181,7 @@ class Term {
     *
     *  @return a new term
     */
-    func subTerm(term : Term) -> Term {
+    public func subTerm(term : Term) -> Term {
         return Term.addTerms(self, term2 : -term)
     }
     
@@ -232,32 +232,32 @@ class Term {
     
 }
 
-@prefix func - (term: Term) -> Term {
+@prefix public func - (term: Term) -> Term {
     return Term(length: term.length * -1, timeUnit: term.timeUnit)
 }
 
-@infix func == (left: Term, right: Term) -> Bool {
+@infix public func == (left: Term, right: Term) -> Bool {
     return left.length == right.length && left.timeUnit == right.timeUnit
 }
 
-@infix func != (left: Term, right: Term) -> Bool {
+@infix public func != (left: Term, right: Term) -> Bool {
     return !(left == right)
 }
     
 
-@infix func + (term : Term, term2 : Term) -> Term {
+@infix public func + (term : Term, term2 : Term) -> Term {
     return term.addTerm(term2)
 }
 
-@infix func - (term : Term, term2 : Term) -> Term {
+@infix public func - (term : Term, term2 : Term) -> Term {
     return term.subTerm(term2)
 }
 
 
-@assignment func += (inout term : Term, term2 : Term) {
+@assignment public func += (inout term : Term, term2 : Term) {
     term = term + term2
 }
 
-@assignment func -= (inout term : Term, term2 : Term) {
+@assignment public func -= (inout term : Term, term2 : Term) {
     term = term - term2
 }

@@ -64,7 +64,7 @@ class UKSettlementCalendar : Calendar {
         }
     }
     
-    init() {
+    public init() {
         super.init()
         impl = UKSettlementCalendar.UKSettlementImpl()
     }

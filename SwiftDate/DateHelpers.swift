@@ -11,23 +11,25 @@
 import Foundation
 
 extension Array {
-    var last: T {
+    public var last: T {
     return self[self.endIndex - 1]
     }
 }
 
 extension String {
-    subscript (i: Int) -> String {
+    public subscript (i: Int) -> String {
         return String(Array(self)[i])
     }
     
     subscript (r: Range<Int>) -> String {
-        var start = advance(startIndex, r.startIndex)
-        var end = advance(startIndex, r.endIndex)
-        return substringWithRange(Range(start: start, end: end))
+        get {
+            let subStart = advance(self.startIndex, r.startIndex, self.endIndex)
+            let subEnd = advance(subStart, r.endIndex - r.startIndex, self.endIndex)
+            return self.substringWithRange(Range(start: subStart, end: subEnd))
+        }
     }
     
-    func find_first_of(string : String) -> Int {
+    public func find_first_of(string : String) -> Int {
         var i = 0
         for c in self {
             if string.rangeOfString(String(c)) {
@@ -40,8 +42,8 @@ extension String {
 }
 
 extension Int {
-    var days: Term { get { return Term(length: self, timeUnit: TimeUnit.Day) } }
-    var weeks: Term { get { return Term(length: self, timeUnit: TimeUnit.Week) } }
-    var months: Term { get { return Term(length: self, timeUnit: TimeUnit.Month) } }
-    var years: Term { get { return Term(length: self, timeUnit: TimeUnit.Year) } }
+    public var days: Term { get { return Term(length: self, timeUnit: TimeUnit.Day) } }
+    public var weeks: Term { get { return Term(length: self, timeUnit: TimeUnit.Week) } }
+    public var months: Term { get { return Term(length: self, timeUnit: TimeUnit.Month) } }
+    public var years: Term { get { return Term(length: self, timeUnit: TimeUnit.Year) } }
 }

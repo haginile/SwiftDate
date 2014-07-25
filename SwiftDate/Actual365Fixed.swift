@@ -10,7 +10,7 @@
 
 import Foundation
 
-class Actual365Fixed : DayCounter {
+public class Actual365Fixed : DayCounter {
     class Actual365FixedImpl : DayCounter.Impl {
         override func name() -> String { return "Actual/365 (Fixed)" }
         
@@ -21,7 +21,7 @@ class Actual365Fixed : DayCounter {
         }
     }
     
-    init() {
+    public init() {
         super.init()
         impl = Actual365Fixed.Actual365FixedImpl()
     }

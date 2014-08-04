@@ -20,7 +20,7 @@ public class Actual360 : DayCounter {
         }
     }
     
-    public init() {
+    public override init() {
         super.init()
         impl = Actual360.Actual360Impl()
     }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3224E08A-C983-4E35-AB23-8961E93A157E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SwiftDate</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>52AB848B7C26F18D238AD6D2E3673E625452CCDB</key>
+		<string>https://github.com/haginile/SwiftDate.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SwiftDate.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>52AB848B7C26F18D238AD6D2E3673E625452CCDB</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/haginile/SwiftDate.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>52AB848B7C26F18D238AD6D2E3673E625452CCDB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>52AB848B7C26F18D238AD6D2E3673E625452CCDB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SwiftDate</string>
+		</dict>
+	</array>
+</dict>
+</plist>

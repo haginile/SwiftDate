@@ -21,7 +21,7 @@ public class Actual365Fixed : DayCounter {
         }
     }
     
-    public init() {
+    public override init() {
         super.init()
         impl = Actual365Fixed.Actual365FixedImpl()
     }

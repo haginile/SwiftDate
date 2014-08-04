@@ -209,55 +209,57 @@ public class Term {
     
     class func parse(string : String) -> Term {
         
-        var subStrings = [String]()
-        var reducedString = string
+        return parseOneTerm(string)
         
-        var iPos = 0, reducedStringDim = 100000
-        while (reducedStringDim > 0) {
-            iPos = reducedString.find_first_of("DdWwMmYyZz")
-            var subStringDim = iPos + 1
-            reducedStringDim = countElements(reducedString) - subStringDim
-            subStrings.append(reducedString[0..<subStringDim])
-            reducedString = reducedString[(iPos + 1)..<reducedStringDim]
-        }
-        
-        var result = Term.parseOneTerm(subStrings[0])
-        
-        for i in 1..<(subStrings.count) {
-            result = result + Term.parseOneTerm(subStrings[i])
-        }
-        
-        return result
+//        var subStrings = [String]()
+//        var reducedString = string
+//        
+//        var iPos = 0, reducedStringDim = 100000
+//        while (reducedStringDim > 0) {
+//            iPos = reducedString.find_first_of("DdWwMmYyZz")
+//            var subStringDim = iPos + 1
+//            reducedStringDim = countElements(reducedString) - subStringDim
+//            subStrings.append(reducedString[0..<subStringDim])
+//            reducedString = reducedString[(iPos + 1)..<reducedStringDim]
+//        }
+//        
+//        var result = Term.parseOneTerm(subStrings[0])
+//        
+//        for i in 1..<(subStrings.count) {
+//            result = result + Term.parseOneTerm(subStrings[i])
+//        }
+//        
+//        return result
     }
     
 }
 
-@prefix public func - (term: Term) -> Term {
+public prefix func - (term: Term) -> Term {
     return Term(length: term.length * -1, timeUnit: term.timeUnit)
 }
 
-@infix public func == (left: Term, right: Term) -> Bool {
+public func == (left: Term, right: Term) -> Bool {
     return left.length == right.length && left.timeUnit == right.timeUnit
 }
 
-@infix public func != (left: Term, right: Term) -> Bool {
+public func != (left: Term, right: Term) -> Bool {
     return !(left == right)
 }
     
 
-@infix public func + (term : Term, term2 : Term) -> Term {
+public func + (term : Term, term2 : Term) -> Term {
     return term.addTerm(term2)
 }
 
-@infix public func - (term : Term, term2 : Term) -> Term {
+public func - (term : Term, term2 : Term) -> Term {
     return term.subTerm(term2)
 }
 
 
-@assignment public func += (inout term : Term, term2 : Term) {
+public func += (inout term : Term, term2 : Term) {
     term = term + term2
 }
 
-@assignment public func -= (inout term : Term, term2 : Term) {
+public func -= (inout term : Term, term2 : Term) {
     term = term - term2
 }

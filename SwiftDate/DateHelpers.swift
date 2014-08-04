@@ -32,7 +32,7 @@ extension String {
     func find_first_of(string : String) -> Int {
         var i = 0
         for c in self {
-            if string.rangeOfString(String(c)) {
+            if string.rangeOfString(String(c)) != nil {
                 return i
             }
             i += 1

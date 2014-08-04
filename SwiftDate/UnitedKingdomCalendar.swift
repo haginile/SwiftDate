@@ -63,7 +63,7 @@ public class UKSettlementCalendar : Calendar {
         }
     }
     
-    public init() {
+    public override init() {
         super.init()
         impl = UKSettlementCalendar.UKSettlementImpl()
     }

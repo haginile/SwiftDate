@@ -416,7 +416,7 @@ public class Date {
         var flist : [String]
         var d = day(), m = month(), y = year()
         var delim : String
-        if format.rangeOfString("/") {
+        if format.rangeOfString("/") != nil {
             delim = "/"
         } else {
             delim = "-"
@@ -432,7 +432,7 @@ public class Date {
             } else if sub.lowercaseString == "mm" {
                 output += doubleDigits[m]
             } else if sub.lowercaseString == "yyyy" {
-                output += y.bridgeToObjectiveC().stringValue
+                output += String(y)
             }
             
             if i != flist.count - 1 {
@@ -586,7 +586,7 @@ public class Date {
         
         var delim : String
         
-        if string.rangeOfString("/") {
+        if string.rangeOfString("/") != nil {
             delim = "/"
         } else {
             delim = "-"
@@ -614,61 +614,61 @@ public class Date {
     }
 }
 
-@infix public func == (left: Date, right: Date) -> Bool {
+public func == (left: Date, right: Date) -> Bool {
     return left.serialNumber == right.serialNumber
 }
 
-@infix public func != (left: Date, right: Date) -> Bool {
+public func != (left: Date, right: Date) -> Bool {
     return left.serialNumber != right.serialNumber
 }
 
 
-@infix public func < (left: Date, right: Date) -> Bool {
+public func < (left: Date, right: Date) -> Bool {
     return left.serialNumber < right.serialNumber
 }
 
-@infix public func <= (left: Date, right: Date) -> Bool {
+public func <= (left: Date, right: Date) -> Bool {
     return left.serialNumber <= right.serialNumber
 }
 
-@infix public func > (left: Date, right: Date) -> Bool {
+public func > (left: Date, right: Date) -> Bool {
     return left.serialNumber > right.serialNumber
 }
 
-@infix public func >= (left: Date, right: Date) -> Bool {
+public func >= (left: Date, right: Date) -> Bool {
     return left.serialNumber >= right.serialNumber
 }
 
-@infix public func + (date : Date, days : Int) -> Date {
+public func + (date : Date, days : Int) -> Date {
     return date.addDays(days)
 }
 
-@infix public func + (date : Date, string : String) -> Date {
+public func + (date : Date, string : String) -> Date {
     return date.add(Term(string: string))
 }
 
-@infix public func + (date : Date, term : Term) -> Date {
+public func + (date : Date, term : Term) -> Date {
     return date.add(term)
 }
 
-@infix public func - (date : Date, days : Int) -> Date {
+public func - (date : Date, days : Int) -> Date {
     return date.subDays(days)
 }
 
-@infix public func - (date : Date, term : Term) -> Date {
+public func - (date : Date, term : Term) -> Date {
     return date.sub(term)
 }
 
-@infix public func - (date1 : Date, date2 : Date) -> Int {
+public func - (date1 : Date, date2 : Date) -> Int {
     return date1.serialNumber - date2.serialNumber
 }
 
 
-@assignment public func += (inout date : Date, days : Int) {
+public func += (inout date : Date, days : Int) {
     date = date + days
 }
 
-@assignment public func -= (inout date : Date, days : Int) {
+public func -= (inout date : Date, days : Int) {
     date = date - days
 }
 

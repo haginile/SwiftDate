@@ -39,7 +39,7 @@ public class NL365 : DayCounter {
         }
     }
     
-    public init() {
+    public override init() {
         super.init()
         impl = NL365.NL365Impl()
     }

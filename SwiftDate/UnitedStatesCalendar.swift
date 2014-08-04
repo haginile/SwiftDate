@@ -65,7 +65,7 @@ public class USSettlementCalendar : Calendar {
         }
     }
     
-    public init() {
+    public override init() {
         super.init()
         impl = USSettlementCalendar.USSettlementImpl()
     }
@@ -166,7 +166,7 @@ public class USNYSECalendar : Calendar {
         }
     }
     
-    public init() {
+    public override init() {
         super.init()
         impl = USNYSECalendar.USNYSEImpl()
     }

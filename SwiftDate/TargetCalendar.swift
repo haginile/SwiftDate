@@ -55,7 +55,7 @@ public class TARGETCalendar : Calendar {
         }
     }
     
-    public init() {
+    public override init() {
         super.init()
         impl = TARGETCalendar.TARGETImpl()
     }

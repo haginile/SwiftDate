@@ -107,7 +107,7 @@ public class Date {
         var dt = NSDate()
         var y = dt.description[0..<4].toInt()!
         var m = dt.description[5..<7].toInt()!
-        var d = dt.description[8..<11].toInt()!
+        var d = dt.description[8..<10].toInt()!
         return Date(year: y, month: m, day: d)
         
     }

@@ -95,16 +95,22 @@ public class Date {
     
     
     /** 
-     * generates today's date; !@@ WTF wouldn't this work??
+     * generates today's date;
      */
-//    public class func today() -> Date {
-//        
+    public class func today() -> Date {
+        
 //        var date = NSDate()
 //        var calendar = NSCalendar.currentCalendar()
 //        var components = calendar.components(.CalendarUnitDay | .CalendarUnitMonth | .CalendarUnitYear, fromDate: date)
 //        return Date(year: components.year, month: components.month, day: components.day)
-//        
-//    }
+        
+        var dt = NSDate()
+        var y = dt.description[0..<4].toInt()!
+        var m = dt.description[5..<7].toInt()!
+        var d = dt.description[8..<11].toInt()!
+        return Date(year: y, month: m, day: d)
+        
+    }
     
     
     /**

@@ -32,36 +32,54 @@ public class USSettlementCalendar : Calendar {
             var y = date.year();
             var em = Calendar.Impl.easterMonday(y);
             
-            //@@@ I HAD TO BREAK THIS APART BECAUSE XCODE WAS GOING NUTS
             
-            if (w == Weekday.Saturday || w == Weekday.Sunday
-                // New Year's Day (possibly moved to Monday if on Sunday) || // Martin Luther King's birthday (third Monday in January)
-                || ((d == 1 || (d == 2 && w == Weekday.Monday)) && m == 1) || ((d >= 15 && d <= 21) && w == Weekday.Monday && m == 1)
-                // Washington's birthday (third Monday in February) || // Good Friday
-                || ((d >= 15 && d <= 21) && w == Weekday.Monday && m == 2) || (dd == em - 3)
-                ) {
+            if (w == Weekday.Saturday || w == Weekday.Sunday) {
+                return false
+            }
+            
+            // New Year's Day (possibly moved to Monday if on Sunday) || // Martin Luther King's birthday (third Monday in January)
+            if ((d == 1 || (d == 2 && w == Weekday.Monday)) && m == 1) {
+                return false
+            }
+            if ((d >= 15 && d <= 21) && w == Weekday.Monday && m == 1) {
+                return false
+            }
+            
+            // Washington's birthday (third Monday in February) || // Good Friday
+            if ((d >= 15 && d <= 21) && w == Weekday.Monday && m == 2) || (dd == em - 3) {
+                return false
+            }
+
+            // Memorial Day (last Monday in May) || // Independence Day (Monday if Sunday or Friday if Saturday)
+            if (d >= 25 && w == Weekday.Monday && m == 5) {
+                return false
+            }
+            if ( ((d == 4 || (d == 5 && w == Weekday.Monday) || (d == 3 && w == Weekday.Friday)) && m == 7)) {
+                return false
+            }
+                
+            // Labor Day (first Monday in September) || // Columbus Day (second Monday in October)
+            if ((d <= 7 && w == Weekday.Monday && m == 9) || ((d >= 8 && d <= 14) && w == Weekday.Monday && m == 10)) {
+                return false
+            }
+            
+            // Veteran's Day (Monday if Sunday or Friday if Saturday) || // Thanksgiving Day (fourth Thursday in November)
+            if ( ((d == 11 || (d == 12 && w == Weekday.Monday)
+                || (d == 10 && w == Weekday.Friday)) && m == 11)
+                || ((d >= 22 && d <= 28) && w == Weekday.Thursday && m == 11) ) {
                     return false
             }
-            if  (  // Memorial Day (last Monday in May) || // Independence Day (Monday if Sunday or Friday if Saturday)
-                (d >= 25 && w == Weekday.Monday && m == 5) || ((d == 4 || (d == 5 && w == Weekday.Monday) ||
-                (d == 3 && w == Weekday.Friday)) && m == 7)
-                // Labor Day (first Monday in September) || // Columbus Day (second Monday in October)
-                || (d <= 7 && w == Weekday.Monday && m == 9) || ((d >= 8 && d <= 14) && w == Weekday.Monday && m == 10)
-                // Veteran's Day (Monday if Sunday or Friday if Saturday) || // Thanksgiving Day (fourth Thursday in November)
-                ) {
-                    return false
+            
+            // Christmas (Monday if Sunday or Friday if Saturday)
+            if ((d == 25 || (d == 26 && w == Weekday.Monday) || (d == 24 && w == Weekday.Friday)) && m == 12) {
+                return false
             }
-            if ( ((d == 11 || (d == 12 && w == Weekday.Monday) || (d == 10 && w == Weekday.Friday)) && m == 11) || ((d >= 22 && d <= 28) && w == Weekday.Thursday && m == 11)
-                // Christmas (Monday if Sunday or Friday if Saturday)
-                || ((d == 25 || (d == 26 && w == Weekday.Monday) || (d == 24 && w == Weekday.Friday)) && m == 12)
-                // Hurricane Sandy
-                || (d == 30 && m == 10 && y == 2012)
-                // Mourning of Regan
-                || (d == 11 && m == 6 && y == 2004)
-                ) {
-                return false;
+            
+            // Hurricane Sandy & Mourning of Regan
+            if ((d == 30 && m == 10 && y == 2012) || (d == 11 && m == 6  && y == 2004)) {
+                return false
             }
-            return true;
+            return true
         }
     }
     
@@ -95,61 +113,108 @@ public class USNYSECalendar : Calendar {
             var y = date.year();
             var em = Calendar.Impl.easterMonday(y);
             
-            if (w == Weekday.Sunday || w == Weekday.Saturday
+            if (w == Weekday.Sunday || w == Weekday.Saturday) {
+                return false
+            }
             // New Year's Day (possibly moved to Monday if on Sunday)
-            || ((d == 1 || (d == 2 && w == Weekday.Monday)) && m == 1)
+            if ((d == 1 || (d == 2 && w == Weekday.Monday)) && m == 1) {
+                return false
+            }
             // Washington's birthday (third Monday in February)
-            || ((d >= 15 && d <= 21) && w == Weekday.Monday && m == 2)
+            if ((d >= 15 && d <= 21) && w == Weekday.Monday && m == 2) {
+                return false
+            }
             // Good Friday
-            || (dd == em-3)
+            if (dd == em-3) {
+                return false
+            }
             // Memorial Day (last Monday in May)
-            || (d >= 25 && w == Weekday.Monday && m == 5)
+            if (d >= 25 && w == Weekday.Monday && m == 5) {
+                return false
+            }
             // Independence Day (Monday if Sunday or Friday if Saturday)
-            || ((d == 4 || (d == 5 && w == Weekday.Monday) ||
-            (d == 3 && w == Weekday.Friday)) && m == 7)
+            if (((d == 4 || (d == 5 && w == Weekday.Monday) ||
+                (d == 3 && w == Weekday.Friday)) && m == 7)) {
+                    return false
+            }
+            
+            if (
             // Labor Day (first Monday in September)
-            || (d <= 7 && w == Weekday.Monday && m == 9)
+                (d <= 7 && w == Weekday.Monday && m == 9)) {
+                    return false
+            }
+
+            if (
             // Thanksgiving Day (fourth Thursday in November)
-            || ((d >= 22 && d <= 28) && w == Weekday.Thursday && m == 11)
+                ((d >= 22 && d <= 28) && w == Weekday.Thursday && m == 11)) {
+                    return false
+            }
+
+            if (
             // Christmas (Monday if Sunday or Friday if Saturday)
-            || ((d == 25 || (d == 26 && w == Weekday.Monday) ||
+            ((d == 25 || (d == 26 && w == Weekday.Monday) ||
             (d == 24 && w == Weekday.Friday)) && m == 12)
                 ) {
                 return false;
             }
+            
             if (y >= 1998) {
                 if (// Martin Luther King's birthday (third Monday in January)
-                ((d >= 15 && d <= 21) && w == Weekday.Monday && m == 1)
+                    ((d >= 15 && d <= 21) && w == Weekday.Monday && m == 1)) {
+                        return false
+                }
                 // President Reagan's funeral
-                || (y == 2004 && m == 6 && d == 11)
+                if (y == 2004 && m == 6 && d == 11) {
+                    return false
+                }
                 // September 11, 2001
-                || (y == 2001 && m == 9 && (11 <= d && d <= 14))
+                if (y == 2001 && m == 9 && (11 <= d && d <= 14)) {
+                    return false
+                }
                 // President Ford's funeral
-                || (y == 2007 && m == 1 && d == 2)
-                    ) {
+                if (y == 2007 && m == 1 && d == 2) {
                         return false;
                 }
             } else if (y <= 1980) {
                 if (// Presidential election days
-                ((y % 4 == 0) && m == 11 && d <= 7 && w == Weekday.Tuesday)
+                    ((y % 4 == 0) && m == 11 && d <= 7 && w == Weekday.Tuesday)) {
+                        return false
+                }
+                if (
                 // 1977 Blackout
-                || (y == 1977 && m == 7 && d == 14)
+                    y == 1977 && m == 7 && d == 14) {
+                        return false
+                }
                 // Funeral of former President Lyndon B. Johnson.
-                || (y == 1973 && m == 1 && d == 25)
+                if (y == 1973 && m == 1 && d == 25) {
+                    return false
+                }
                 // Funeral of former President Harry S. Truman
-                || (y == 1972 && m == 12 && d == 28)
+                if (y == 1972 && m == 12 && d == 28) {
+                    return false
+                }
                 // National Day of Participation for the lunar exploration.
-                || (y == 1969 && m == 7 && d == 21)
+                if (y == 1969 && m == 7 && d == 21) {
+                    return false
+                }
                 // Funeral of former President Eisenhower.
-                || (y == 1969 && m == 3 && d == 31)
+                if (y == 1969 && m == 3 && d == 31) {
+                    return false
+                }
                 // Closed all day - heavy snow.
-                || (y == 1969 && m == 2 && d == 10)
+                if (y == 1969 && m == 2 && d == 10) {
+                    return false
+                        
+                }
+                if (
                 // Day after Independence Day.
-                || (y == 1968 && m == 7 && d == 5)
+                y == 1968 && m == 7 && d == 5) {
+                    return false
+                }
+                if (
                 // June 12-Dec. 31, 1968
                 // Four day week (closed on Wednesdays) - Paperwork Crisis
-                || (y == 1968 && dd >= 163 && w == Weekday.Wednesday)
-                    ) {
+                 y == 1968 && dd >= 163 && w == Weekday.Wednesday) {
                     return false;
                 }
             } else {

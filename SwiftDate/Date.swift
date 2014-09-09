@@ -95,12 +95,16 @@ public class Date {
     
     
     /** 
-     * generates today's date
+     * generates today's date; !@@ WTF wouldn't this work??
      */
-    public class func today() -> Date {
-        var t = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitYear, fromDate: NSDate.date())
-        return Date(year: t.year, month: t.month, day: t.day)
-    }
+//    public class func today() -> Date {
+//        
+//        var date = NSDate()
+//        var calendar = NSCalendar.currentCalendar()
+//        var components = calendar.components(.CalendarUnitDay | .CalendarUnitMonth | .CalendarUnitYear, fromDate: date)
+//        return Date(year: components.year, month: components.month, day: components.day)
+//        
+//    }
     
     
     /**

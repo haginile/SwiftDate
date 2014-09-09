@@ -43,18 +43,30 @@ public class UKSettlementCalendar : Calendar {
                 // first Monday of May (Early May Bank Holiday)
                 || (d <= 7 && w == Weekday.Monday && m == 5)
                 // last Monday of May (Spring Bank Holiday)
-                || (d >= 25 && w == Weekday.Monday && m == 5 && y != 2002)
+                || (d >= 25 && w == Weekday.Monday && m == 5 && y != 2002)) {
+                    return false
+            }
+            
+            if (
                 // last Monday of August (Summer Bank Holiday)
-                || (d >= 25 && w == Weekday.Monday && m == 8)
+                (d >= 25 && w == Weekday.Monday && m == 8)) {
+                    return false
+            }
+            
+            if (
                 // Christmas (possibly moved to Monday or Tuesday)
-                || ((d == 25 || (d == 27 && (w == Weekday.Monday || w == Weekday.Tuesday)))
+                ((d == 25 || (d == 27 && (w == Weekday.Monday || w == Weekday.Tuesday)))
                 && m == 12)
                 // Boxing Day (possibly moved to Monday or Tuesday)
                 || ((d == 26 || (d == 28 && (w == Weekday.Monday || w == Weekday.Tuesday)))
-                && m == 12)
+                    && m == 12)) {
+                        return false;
+            }
+            
+            if (
                 // June 3rd, 2002 only (Golden Jubilee Bank Holiday)
                 // June 4rd, 2002 only (special Spring Bank Holiday)
-                || ((d == 3 || d == 4) && m == 6 && y == 2002)
+                ((d == 3 || d == 4) && m == 6 && y == 2002)
                 // December 31st, 1999 only
                 || (d == 31 && m == 12 && y == 1999)) {
                 return false;

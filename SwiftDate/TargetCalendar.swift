@@ -32,23 +32,37 @@ public class TARGETCalendar : Calendar {
             var y = date.year();
             var em = Calendar.Impl.easterMonday(y);
             
-            if (w == Weekday.Saturday || w == Weekday.Sunday
-                // New Year's Day
-                || (d == 1  && m == 1)
+            if (w == Weekday.Saturday || w == Weekday.Sunday) {
+                return false
+            }
+            // New Year's Day
+            if (d == 1  && m == 1) {
+                return false
+            }
                 // Good Friday
-                || (dd == em-3 && y >= 2000)
+            if (dd == em-3 && y >= 2000) {
+                return false
+            }
                 // Easter Monday
-                || (dd == em && y >= 2000)
+            if (dd == em && y >= 2000) {
+                return false
+            }
                 // Labour Day
-                || (d == 1  && m == 5 && y >= 2000)
+            if (d == 1  && m == 5 && y >= 2000) {
+                return false
+            }
                 // Christmas
-                || (d == 25 && m == 12)
+            if (d == 25 && m == 12) {
+                return false
+            }
                 // Day of Goodwill
-                || (d == 26 && m == 12 && y >= 2000)
+            if (d == 26 && m == 12 && y >= 2000) {
+                return false
+            }
                 // December 31st, 1998, 1999, and 2001 only
-                || (d == 31 && m == 12 &&
-                (y == 1998 || y == 1999 || y == 2001))) {
-                return false;
+            if (d == 31 && m == 12 &&
+                (y == 1998 || y == 1999 || y == 2001)) {
+                return false
             }
             
             return true;

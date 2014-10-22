@@ -125,8 +125,8 @@ public class Date {
     */
     public class func nthWeekday(nth : Int, weekday : Weekday, month : Int, year : Int) -> Date {
         var first = Date(year : year, month : month, day : 1).weekday()
-        var skip = nth - (weekday.toRaw() >= first.toRaw() ? 1 : 0)
-        return Date(year: year, month: month, day: 1 + weekday.toRaw() - first.toRaw() + skip * 7)
+        var skip = nth - (weekday.rawValue >= first.rawValue ? 1 : 0)
+        return Date(year: year, month: month, day: 1 + weekday.rawValue - first.rawValue + skip * 7)
     }
     
     
@@ -196,7 +196,7 @@ public class Date {
     */
     public func weekday() -> Weekday {
         var w = serialNumber % 7
-        return Weekday.fromRaw(w == 0 ? 7 : w)!
+        return Weekday(rawValue: w == 0 ? 7 : w)!
     }
     
     
@@ -250,7 +250,7 @@ public class Date {
         case TimeUnit.Year:
             result = date1.year() == date2.year()
         case TimeUnit.Week:
-            var daysFromStartOfWeek : Int = (date1 - (date2 - date2.weekday().toRaw()))
+            var daysFromStartOfWeek : Int = (date1 - (date2 - date2.weekday().rawValue))
             result = (daysFromStartOfWeek > 0 && daysFromStartOfWeek < 8)
         case TimeUnit.Day:
             result = (date1 == date2)
@@ -284,7 +284,7 @@ public class Date {
             }
             
             var resultBOM = Date(year: y, month: m, day: 1)
-            var result = Date(serialNumber: resultBOM.serialNumber + rollDay.toRaw() - 1)
+            var result = Date(serialNumber: resultBOM.serialNumber + rollDay.rawValue - 1)
             if (resultBOM.month() == result.month()) {
                 return result
             } else {
@@ -324,7 +324,7 @@ public class Date {
     *  @return the roll day corresponding to the current date
     */
     public func defaultRollDay() -> RollDay {
-        return RollDay.fromRaw(day())!
+        return RollDay(rawValue: day())!
     }
     
     /**

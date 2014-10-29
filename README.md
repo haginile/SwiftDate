@@ -3,12 +3,6 @@ SwiftDate
 
 SwiftDate is a powerful Date/Calendar framework written completely in Swift. It is partially based on QuantLib, the popular quantitative finance library, and is designed to be very friendly to financial applications. Even if you are not building financial apps, you may still find its date shifting and business calendar capabilities useful.
 
-Community
-==========
-
-Check out this [website](http://swift.versify-app.com) for the latest updates + general Swift news & tutorials.
-
-
 Getting Started
 ===============
 
@@ -66,4 +60,4 @@ dc.dayCountFraction(Date(string : "2014-01-31"), date2: Date(string : "2014-02-2
 Copyright and license
 =====================
 
-Code and documentation copyright 2014 SHFuse. Code is released under the MIT license.
+Code and documentation copyright 2014 stockfuse.com. Code is released under the MIT license.

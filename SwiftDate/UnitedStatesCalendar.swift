@@ -32,6 +32,18 @@ public class USSettlementCalendar : Calendar {
             var y = date.year();
             var em = Calendar.Impl.easterMonday(y);
             
+            if ((y == 2007 && m == 4 && d == 6) ||
+                (y == 2010 && m == 4 && d == 2) ||
+                (y == 2012 && m == 4 && d == 6) ||
+                (y == 2015 && m == 4 && d == 3)) {
+                    return true
+            }
+            if ((y == 1999 && m == 4 && d == 2) ||
+                (y == 2006 && m == 11 && d == 10) ||
+                (y == 2000 && m == 11 && d == 10)) {
+                    return true;
+            }
+            
             
             if (w == Weekday.Saturday || w == Weekday.Sunday) {
                 return false

@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7F84F2F7196BB4AF002167A2 /* SwiftDateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F84F2F6196BB4AF002167A2 /* SwiftDateTests.swift */; };
-		7F84F30A196BB5BE002167A2 /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F84F2E5196BB4AF002167A2 /* SwiftDate.framework */; };
+		7F67C77E1A79A0CF00250CC6 /* SwiftDate_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F67C77D1A79A0CF00250CC6 /* SwiftDate_Tests.swift */; };
+		7F67C77F1A79A0CF00250CC6 /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F84F2E5196BB4AF002167A2 /* SwiftDate.framework */; };
 		7F84F30B196BB5EC002167A2 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC2ED98196AF51E00396E0F /* Date.swift */; };
 		7F84F30C196BB5EC002167A2 /* BizDayRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC2ED99196AF51E00396E0F /* BizDayRule.swift */; };
 		7F84F30D196BB5EC002167A2 /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC2ED9A196AF51E00396E0F /* Term.swift */; };
@@ -26,14 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		7F59221B1982D9160030170C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7FC2ED86196AF50900396E0F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7F84F2E4196BB4AF002167A2;
-			remoteInfo = SwiftDate;
-		};
-		7F84F308196BB5B6002167A2 /* PBXContainerItemProxy */ = {
+		7F67C7801A79A0CF00250CC6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7FC2ED86196AF50900396E0F /* Project object */;
 			proxyType = 1;
@@ -43,11 +36,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F67C7791A79A0CF00250CC6 /* SwiftDate Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftDate Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F67C77C1A79A0CF00250CC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F67C77D1A79A0CF00250CC6 /* SwiftDate_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDate_Tests.swift; sourceTree = "<group>"; };
 		7F84F2E5196BB4AF002167A2 /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F84F2E8196BB4AF002167A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7F84F2EF196BB4AF002167A2 /* SwiftDateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftDateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7F84F2F5196BB4AF002167A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7F84F2F6196BB4AF002167A2 /* SwiftDateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDateTests.swift; sourceTree = "<group>"; };
 		7FB18F7C196B91EE0019D1E1 /* ActualActual.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActualActual.swift; sourceTree = "<group>"; };
 		7FB18F7E196B95F60019D1E1 /* UnitedKingdomCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitedKingdomCalendar.swift; sourceTree = "<group>"; };
 		7FB18F80196B968F0019D1E1 /* TargetCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetCalendar.swift; sourceTree = "<group>"; };
@@ -65,6 +58,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7F67C7761A79A0CF00250CC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F67C77F1A79A0CF00250CC6 /* SwiftDate.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7F84F2E1196BB4AF002167A2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -72,17 +73,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7F84F2EC196BB4AF002167A2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7F84F30A196BB5BE002167A2 /* SwiftDate.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F67C77A1A79A0CF00250CC6 /* SwiftDate Tests */ = {
+			isa = PBXGroup;
+			children = (
+				7F67C77D1A79A0CF00250CC6 /* SwiftDate_Tests.swift */,
+				7F67C77B1A79A0CF00250CC6 /* Supporting Files */,
+			);
+			path = "SwiftDate Tests";
+			sourceTree = "<group>";
+		};
+		7F67C77B1A79A0CF00250CC6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7F67C77C1A79A0CF00250CC6 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		7F84F2E7196BB4AF002167A2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,28 +101,11 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		7F84F2F3196BB4AF002167A2 /* SwiftDateTests */ = {
-			isa = PBXGroup;
-			children = (
-				7F84F2F6196BB4AF002167A2 /* SwiftDateTests.swift */,
-				7F84F2F4196BB4AF002167A2 /* Supporting Files */,
-			);
-			path = SwiftDateTests;
-			sourceTree = "<group>";
-		};
-		7F84F2F4196BB4AF002167A2 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				7F84F2F5196BB4AF002167A2 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		7FC2ED85196AF50900396E0F = {
 			isa = PBXGroup;
 			children = (
 				7FC2ED90196AF50900396E0F /* SwiftDate */,
-				7F84F2F3196BB4AF002167A2 /* SwiftDateTests */,
+				7F67C77A1A79A0CF00250CC6 /* SwiftDate Tests */,
 				7FC2ED8F196AF50900396E0F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -121,7 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				7F84F2E5196BB4AF002167A2 /* SwiftDate.framework */,
-				7F84F2EF196BB4AF002167A2 /* SwiftDateTests.xctest */,
+				7F67C7791A79A0CF00250CC6 /* SwiftDate Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -177,6 +170,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		7F67C7781A79A0CF00250CC6 /* SwiftDate Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F67C7821A79A0CF00250CC6 /* Build configuration list for PBXNativeTarget "SwiftDate Tests" */;
+			buildPhases = (
+				7F67C7751A79A0CF00250CC6 /* Sources */,
+				7F67C7761A79A0CF00250CC6 /* Frameworks */,
+				7F67C7771A79A0CF00250CC6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7F67C7811A79A0CF00250CC6 /* PBXTargetDependency */,
+			);
+			name = "SwiftDate Tests";
+			productName = "SwiftDate Tests";
+			productReference = 7F67C7791A79A0CF00250CC6 /* SwiftDate Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		7F84F2E4196BB4AF002167A2 /* SwiftDate */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7F84F2F8196BB4AF002167A2 /* Build configuration list for PBXNativeTarget "SwiftDate" */;
@@ -195,25 +206,6 @@
 			productReference = 7F84F2E5196BB4AF002167A2 /* SwiftDate.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		7F84F2EE196BB4AF002167A2 /* SwiftDateTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7F84F2FB196BB4AF002167A2 /* Build configuration list for PBXNativeTarget "SwiftDateTests" */;
-			buildPhases = (
-				7F84F2EB196BB4AF002167A2 /* Sources */,
-				7F84F2EC196BB4AF002167A2 /* Frameworks */,
-				7F84F2ED196BB4AF002167A2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7F84F309196BB5B6002167A2 /* PBXTargetDependency */,
-				7F59221C1982D9160030170C /* PBXTargetDependency */,
-			);
-			name = SwiftDateTests;
-			productName = SwiftDateTests;
-			productReference = 7F84F2EF196BB4AF002167A2 /* SwiftDateTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -223,13 +215,12 @@
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = SHFuse;
 				TargetAttributes = {
+					7F67C7781A79A0CF00250CC6 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
 					7F84F2E4196BB4AF002167A2 = {
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = JVY8DVFZ5B;
-					};
-					7F84F2EE196BB4AF002167A2 = {
-						CreatedOnToolsVersion = 6.0;
-						TestTargetID = 7F84F2E4196BB4AF002167A2;
 					};
 				};
 			};
@@ -246,20 +237,20 @@
 			projectRoot = "";
 			targets = (
 				7F84F2E4196BB4AF002167A2 /* SwiftDate */,
-				7F84F2EE196BB4AF002167A2 /* SwiftDateTests */,
+				7F67C7781A79A0CF00250CC6 /* SwiftDate Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		7F84F2E3196BB4AF002167A2 /* Resources */ = {
+		7F67C7771A79A0CF00250CC6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7F84F2ED196BB4AF002167A2 /* Resources */ = {
+		7F84F2E3196BB4AF002167A2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -269,6 +260,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7F67C7751A79A0CF00250CC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F67C77E1A79A0CF00250CC6 /* SwiftDate_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7F84F2E0196BB4AF002167A2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -290,34 +289,60 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7F84F2EB196BB4AF002167A2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7F84F2F7196BB4AF002167A2 /* SwiftDateTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		7F59221C1982D9160030170C /* PBXTargetDependency */ = {
+		7F67C7811A79A0CF00250CC6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7F84F2E4196BB4AF002167A2 /* SwiftDate */;
-			targetProxy = 7F59221B1982D9160030170C /* PBXContainerItemProxy */;
-		};
-		7F84F309196BB5B6002167A2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7F84F2E4196BB4AF002167A2 /* SwiftDate */;
-			targetProxy = 7F84F308196BB5B6002167A2 /* PBXContainerItemProxy */;
+			targetProxy = 7F67C7801A79A0CF00250CC6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		7F67C7831A79A0CF00250CC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SwiftDate Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		7F67C7841A79A0CF00250CC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SwiftDate Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		7F84F2F9196BB4AF002167A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -331,6 +356,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.10;
@@ -345,7 +371,8 @@
 		7F84F2FA196BB4AF002167A2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -355,6 +382,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.10;
@@ -363,43 +391,6 @@
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		7F84F2FC196BB4AF002167A2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SwiftDateTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx10.10;
-			};
-			name = Debug;
-		};
-		7F84F2FD196BB4AF002167A2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SwiftDateTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx10.10;
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -481,20 +472,19 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7F67C7821A79A0CF00250CC6 /* Build configuration list for PBXNativeTarget "SwiftDate Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F67C7831A79A0CF00250CC6 /* Debug */,
+				7F67C7841A79A0CF00250CC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		7F84F2F8196BB4AF002167A2 /* Build configuration list for PBXNativeTarget "SwiftDate" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7F84F2F9196BB4AF002167A2 /* Debug */,
 				7F84F2FA196BB4AF002167A2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7F84F2FB196BB4AF002167A2 /* Build configuration list for PBXNativeTarget "SwiftDateTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7F84F2FC196BB4AF002167A2 /* Debug */,
-				7F84F2FD196BB4AF002167A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

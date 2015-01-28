@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>SwiftDate Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>SwiftDate.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +23,21 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>7F4AC75F196CA67100E41579</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7F67C7581A799F6E00250CC6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7F67C7681A799FE200250CC6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7F67C7781A79A0CF00250CC6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

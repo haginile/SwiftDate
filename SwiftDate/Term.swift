@@ -188,7 +188,7 @@ public class Term {
     
     class func parseOneTerm(string : String) -> Term {
         var str = string.uppercaseString
-        var len = countElements(str)
+        var len = count(str)
         var length = str[0..<(len - 1)].toInt()
         var timeUnit = str[len-1]
         

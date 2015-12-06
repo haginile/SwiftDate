@@ -74,11 +74,11 @@ public class Date {
         assert(year < 2200 && year > 1900, "#Year is out of bound!")
         assert(month < 13 && month > 0, "#Month is out of bound!")
         
-        var leap = Date.isLeap(year)
-        var len = Date.monthLength(month, leapYear: leap)
+        let leap = Date.isLeap(year)
+        let len = Date.monthLength(month, leapYear: leap)
         assert(day <= len, "#Day is out of bound!")
         
-        var offset = Date.monthOffset(month, leapYear: leap)
+        let offset = Date.monthOffset(month, leapYear: leap)
         serialNumber = day + offset + Date.yearOffset(year)
     }
     
@@ -104,10 +104,10 @@ public class Date {
 //        var components = calendar.components(.CalendarUnitDay | .CalendarUnitMonth | .CalendarUnitYear, fromDate: date)
 //        return Date(year: components.year, month: components.month, day: components.day)
         
-        var dt = NSDate()
-        var y = dt.description[0..<4].toInt()!
-        var m = dt.description[5..<7].toInt()!
-        var d = dt.description[8..<10].toInt()!
+        let dt = NSDate()
+        let y = Int(dt.description[0..<4])!
+        let m = Int(dt.description[5..<7])!
+        let d = Int(dt.description[8..<10])!
         return Date(year: y, month: m, day: d)
         
     }
@@ -124,8 +124,8 @@ public class Date {
     *  @return Date object
     */
     public class func nthWeekday(nth : Int, weekday : Weekday, month : Int, year : Int) -> Date {
-        var first = Date(year : year, month : month, day : 1).weekday()
-        var skip = nth - (weekday.rawValue >= first.rawValue ? 1 : 0)
+        let first = Date(year : year, month : month, day : 1).weekday()
+        let skip = nth - (weekday.rawValue >= first.rawValue ? 1 : 0)
         return Date(year: year, month: month, day: 1 + weekday.rawValue - first.rawValue + skip * 7)
     }
     
@@ -161,9 +161,9 @@ public class Date {
     *  @return an integer corresponding to the month of the date
     */
     public func month() -> Int {
-        var d = dayOfYear()
+        let d = dayOfYear()
         var m = d / 30 + 1
-        var leap = Date.isLeap(year())
+        let leap = Date.isLeap(year())
         while (d <= Date.monthOffset(m, leapYear: leap)) {
             --m
         }
@@ -195,7 +195,7 @@ public class Date {
     *  @return the day in week
     */
     public func weekday() -> Weekday {
-        var w = serialNumber % 7
+        let w = serialNumber % 7
         return Weekday(rawValue: w == 0 ? 7 : w)!
     }
     
@@ -209,8 +209,8 @@ public class Date {
     *  @return a date object corresponding to the last calendar day of the month
     */
     public class func endOfMonth(date : Date) -> Date {
-        var m = date.month()
-        var y = date.year()
+        let m = date.month()
+        let y = date.year()
         return Date(year: y, month: m, day: Date.monthLength(m, leapYear: Date.isLeap(y)))
     }
     
@@ -224,8 +224,8 @@ public class Date {
     *  @return a date object corresponding to the first calendar day of the month
     */
     public class func firstDayOfMonth(date : Date) -> Date {
-        var m = date.month()
-        var y = date.year()
+        let m = date.month()
+        let y = date.year()
         return Date(year: y, month: m, day: 1)
     }
     
@@ -250,7 +250,7 @@ public class Date {
         case TimeUnit.Year:
             result = date1.year() == date2.year()
         case TimeUnit.Week:
-            var daysFromStartOfWeek : Int = (date1 - (date2 - date2.weekday().rawValue))
+            let daysFromStartOfWeek : Int = (date1 - (date2 - date2.weekday().rawValue))
             result = (daysFromStartOfWeek > 0 && daysFromStartOfWeek < 8)
         case TimeUnit.Day:
             result = (date1 == date2)
@@ -271,7 +271,7 @@ public class Date {
             if rollDay == RollDay.Zero {
                 rollDay = date.defaultRollDay()
             }
-            var d = date.dayOfMonth()
+            _ = date.dayOfMonth()
             var m = date.month() + length
             var y = date.year()
             while (m > 12) {
@@ -283,8 +283,8 @@ public class Date {
                 y -= 1
             }
             
-            var resultBOM = Date(year: y, month: m, day: 1)
-            var result = Date(serialNumber: resultBOM.serialNumber + rollDay.rawValue - 1)
+            let resultBOM = Date(year: y, month: m, day: 1)
+            let result = Date(serialNumber: resultBOM.serialNumber + rollDay.rawValue - 1)
             if (resultBOM.month() == result.month()) {
                 return result
             } else {
@@ -338,7 +338,7 @@ public class Date {
     *
     *  @return the new date
     */
-    public func addMonths(var numberOfMonths : Int, var rollDay : RollDay = RollDay.Zero) -> Date {
+    public func addMonths( numberOfMonths : Int, rollDay : RollDay = RollDay.Zero) -> Date {
         return Date.advance(self, length: numberOfMonths, timeUnit: TimeUnit.Month, rollDay : rollDay)
     }
     
@@ -436,7 +436,7 @@ public class Date {
         
         var output = String()
         for i in 0..<flist.count {
-            var sub = flist[i]
+            let sub = flist[i]
             if sub.lowercaseString == "dd" {
                 output += doubleDigits[d]
             } else if sub.lowercaseString == "mm" {
@@ -608,13 +608,13 @@ public class Date {
         assert(slist.count == flist.count, "#String does not match format mask!")
         
         for i in 0..<flist.count {
-            var sub = flist[i]
+            let sub = flist[i]
             if sub.lowercaseString == "dd" {
-                d = slist[i].toInt()!
+                d = Int(slist[i])!
             } else if sub.lowercaseString == "mm" {
-                m = slist[i].toInt()!
+                m = Int(slist[i])!
             } else if sub.lowercaseString == "yyyy" {
-                y = slist[i].toInt()!
+                y = Int(slist[i])!
             }
         }
         if y < 100 {

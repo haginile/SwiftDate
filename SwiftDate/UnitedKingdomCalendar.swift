@@ -25,12 +25,12 @@ public class UKSettlementCalendar : Calendar {
         }
         
         override func isBizDay(date: Date) -> Bool {
-            var w = date.weekday();
-            var d = date.day();
-            var dd = date.dayOfYear();
-            var m = date.month();
-            var y = date.year();
-            var em = Calendar.Impl.easterMonday(y);
+            let w = date.weekday();
+            let d = date.day();
+            let dd = date.dayOfYear();
+            let m = date.month();
+            let y = date.year();
+            let em = Calendar.Impl.easterMonday(y);
                         
             if (w == Weekday.Saturday || w == Weekday.Sunday
                 // New Year's Day (possibly moved to Monday)

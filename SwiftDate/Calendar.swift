@@ -163,7 +163,7 @@ public class Calendar {
     */
     public func nextBizDay(date : Date) -> Date {
         var d = date
-        do {
+        repeat {
             d += 1
         } while (!isBizDay(d))
         return d
@@ -178,7 +178,7 @@ public class Calendar {
     */
     public func prevBizDay(date : Date) -> Date {
         var d = date
-        do {
+        repeat {
             d -= 1
         } while (!isBizDay(d))
         return d
@@ -202,10 +202,10 @@ public class Calendar {
         
         switch bizDayRule {
         case BizDayRule.ModifiedFollowing:
-            var nextDate = nextBizDay(date)
+            let nextDate = nextBizDay(date)
             return Date.samePeriod(date, date2: nextDate, timeUnit: timeUnit) ? nextDate : prevBizDay(date)
         case BizDayRule.ModifiedPrevious:
-            var prevDate = prevBizDay(date)
+            let prevDate = prevBizDay(date)
             return Date.samePeriod(date, date2: prevDate, timeUnit: timeUnit) ? prevDate : nextBizDay(date)
         case BizDayRule.Following:
             return nextBizDay(date)

@@ -11,27 +11,27 @@
 import Foundation
 
 extension Array {
-    var last: T {
+    var last: Element {
     return self[self.endIndex - 1]
     }
 }
 
 extension String {
     subscript (i: Int) -> String {
-        return String(Array(self)[i])
+        return String(Array(self.characters)[i])
     }
     
     subscript (r: Range<Int>) -> String {
         get {
-            let subStart = advance(self.startIndex, r.startIndex, self.endIndex)
-            let subEnd = advance(subStart, r.endIndex - r.startIndex, self.endIndex)
+            let subStart = self.startIndex.advancedBy(r.startIndex, limit: self.endIndex)
+            let subEnd = subStart.advancedBy(r.endIndex - r.startIndex, limit: self.endIndex)
             return self.substringWithRange(Range(start: subStart, end: subEnd))
         }
     }
     
     func find_first_of(string : String) -> Int {
         var i = 0
-        for c in self {
+        for c in self.characters {
             if string.rangeOfString(String(c)) != nil {
                 return i
             }

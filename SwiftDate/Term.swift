@@ -45,7 +45,7 @@ public class Term {
     *  TODO: Fix bug with composite tenor strings such as "1Y6M"
     */
     public init(string : String) {
-        var t = Term.parse(string)
+        let t = Term.parse(string)
         self.length = t.length
         self.timeUnit = t.timeUnit
     }
@@ -187,10 +187,10 @@ public class Term {
     
     
     class func parseOneTerm(string : String) -> Term {
-        var str = string.uppercaseString
-        var len = count(str)
-        var length = str[0..<(len - 1)].toInt()
-        var timeUnit = str[len-1]
+        let str = string.uppercaseString
+        let len = str.characters.count
+        let length = Int(str[0..<(len - 1)])
+        let timeUnit = str[len-1]
         
         switch timeUnit {
         case "D":

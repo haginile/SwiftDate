@@ -24,12 +24,12 @@ public class Thirty360 : DayCounter {
         override func shortName() -> String { return "30/360" }
         
         override func dayCount(date1: Date, date2: Date) -> Int {
-            var dd1 : Int = date1.day()
+            let dd1 : Int = date1.day()
             var dd2 : Int = date2.day()
-            var mm1 : Int = date1.month()
+            let mm1 : Int = date1.month()
             var mm2 : Int = date2.month()
-            var yy1 : Int = date1.year()
-            var yy2 : Int = date2.year()
+            let yy1 : Int = date1.year()
+            let yy2 : Int = date2.year()
 
             if (dd2 == 31 && dd1 < 30) {
                 dd2 = 1
@@ -53,12 +53,12 @@ public class Thirty360 : DayCounter {
         override func shortName() -> String { return "30/360" }
         
         override func dayCount(date1: Date, date2: Date) -> Int {
-            var dd1 : Int = date1.day()
-            var dd2 : Int = date2.day()
-            var mm1 : Int = date1.month()
-            var mm2 : Int = date2.month()
-            var yy1 : Int = date1.year()
-            var yy2 : Int = date2.year()
+            let dd1 : Int = date1.day()
+            let dd2 : Int = date2.day()
+            let mm1 : Int = date1.month()
+            let mm2 : Int = date2.month()
+            let yy1 : Int = date1.year()
+            let yy2 : Int = date2.year()
             
             var o = 360 * (yy2 - yy1)
             o += 30 * (mm2 - mm1 - 1)
@@ -79,10 +79,10 @@ public class Thirty360 : DayCounter {
         override func dayCount(date1: Date, date2: Date) -> Int {
             var dd1 : Int = date1.day()
             var dd2 : Int = date2.day()
-            var mm1 : Int = date1.month()
-            var mm2 : Int = date2.month()
-            var yy1 : Int = date1.year()
-            var yy2 : Int = date2.year()
+            let mm1 : Int = date1.month()
+            let mm2 : Int = date2.month()
+            let yy1 : Int = date1.year()
+            let yy2 : Int = date2.year()
             
             if mm1 == 2 && dd1 > 27 {
                 dd1 = 30
@@ -111,10 +111,10 @@ public class Thirty360 : DayCounter {
         override func dayCount(date1: Date, date2: Date) -> Int {
             var dd1 : Int = date1.day()
             var dd2 : Int = date2.day()
-            var mm1 : Int = date1.month()
-            var mm2 : Int = date2.month()
-            var yy1 : Int = date1.year()
-            var yy2 : Int = date2.year()
+            let mm1 : Int = date1.month()
+            let mm2 : Int = date2.month()
+            let yy1 : Int = date1.year()
+            let yy2 : Int = date2.year()
             
             if dd1 == 31 || date2 == Date.endOfMonth(date2) {
                 dd1 = 30

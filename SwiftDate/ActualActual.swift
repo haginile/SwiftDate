@@ -40,13 +40,13 @@ public class ActualActual : DayCounter {
                 months = 12
             }
             
-            var period = Double(months) / 12.0
+            let period = Double(months) / 12.0
             
             if (date2 <= refPeriodEnd) {
                 if (date1 >= refPeriodStart) {
                     return period * Double(dayCount(date1, date2 : date2)) / Double(dayCount(refPeriodStart, date2 : refPeriodEnd))
                 } else {
-                    var prevRef = refPeriodStart.addMonths(months)
+                    let prevRef = refPeriodStart.addMonths(months)
                     if (date2 > refPeriodStart) {
                         return dayCountFraction(date1, date2: refPeriodStart, referenceStartDate: prevRef, referenceEndDate: refPeriodStart) + dayCountFraction(refPeriodStart, date2: date2, referenceStartDate: refPeriodStart, referenceEndDate: refPeriodEnd)
                     } else {
@@ -92,10 +92,10 @@ public class ActualActual : DayCounter {
                 return dayCountFraction(date2, date2: date1, referenceStartDate: referenceStartDate, referenceEndDate: referenceEndDate)
             }
             
-            var y1 = date1.year()
-            var y2 = date2.year()
-            var dib1 = (Date.isLeap(y1) ? 366.0 : 365.0)
-            var dib2 = (Date.isLeap(y2) ? 366.0 : 365.0)
+            let y1 = date1.year()
+            let y2 = date2.year()
+            let dib1 = (Date.isLeap(y1) ? 366.0 : 365.0)
+            let dib2 = (Date.isLeap(y2) ? 366.0 : 365.0)
             var sum = Double(y2 - y1 - 1)
             sum += Double(dayCount(date1, date2: Date(year: y1 + 1, month: 1, day: 1))) / dib1
             sum += Double(dayCount(Date(year: y2, month: 1, day: 1), date2: date2)) / dib2

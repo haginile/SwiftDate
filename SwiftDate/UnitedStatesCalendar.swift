@@ -25,12 +25,12 @@ public class USSettlementCalendar : Calendar {
         }
         
         override func isBizDay(date: Date) -> Bool {
-            var w = date.weekday();
-            var d = date.day();
-            var dd = date.dayOfYear();
-            var m = date.month();
-            var y = date.year();
-            var em = Calendar.Impl.easterMonday(y);
+            let w = date.weekday();
+            let d = date.day();
+            let dd = date.dayOfYear();
+            let m = date.month();
+            let y = date.year();
+            let em = Calendar.Impl.easterMonday(y);
             
             if ((y == 2007 && m == 4 && d == 6) ||
                 (y == 2010 && m == 4 && d == 2) ||
@@ -118,12 +118,12 @@ public class USNYSECalendar : Calendar {
         }
         
         override func isBizDay(date: Date) -> Bool {
-            var w = date.weekday();
-            var d = date.day();
-            var dd = date.dayOfYear();
-            var m = date.month();
-            var y = date.year();
-            var em = Calendar.Impl.easterMonday(y);
+            let w = date.weekday();
+            let d = date.day();
+            let dd = date.dayOfYear();
+            let m = date.month();
+            let y = date.year();
+            let em = Calendar.Impl.easterMonday(y);
             
             if (w == Weekday.Sunday || w == Weekday.Saturday) {
                 return false
